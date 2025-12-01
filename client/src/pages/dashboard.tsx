@@ -41,8 +41,11 @@ export default function Dashboard() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    loadSampleQuestionBanks();
-    refreshData();
+    const initializeData = async () => {
+      await loadSampleQuestionBanks();
+      refreshData();
+    };
+    initializeData();
   }, []);
 
   const refreshData = () => {

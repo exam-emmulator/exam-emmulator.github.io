@@ -1,16 +1,36 @@
 # Exam Practice Portal
 
-A fully static exam and practice website that can be deployed on GitHub Pages. Load custom question banks from JSON files, take exams or practice with instant feedback, and track your progress over time.
+A modern exam and practice website that dynamically loads question banks from JSON files. Take exams or practice with instant feedback, and track your progress over time.
 
 ## Features
 
+- **Dynamic Question Banks**: Automatically loads all JSON files from the `bank` folder
 - **Multiple Question Banks**: Upload your own JSON question files or use pre-built sample sets
 - **Exam Mode**: Timed exam experience with question navigation and submit functionality
 - **Practice Mode**: Instant feedback after each question with explanations
 - **Progress Tracking**: View attempt history, scores, and performance trends
-- **Local Storage**: All data persists in your browser - no server required
+- **Local Storage**: All data persists in your browser
 - **Dark/Light Mode**: Toggle between themes for comfortable studying
 - **Responsive Design**: Works on desktop and tablet devices
+
+## Quick Start
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Add your question banks**:
+   - Place JSON files in the `bank` folder
+   - See `bank/README.md` for format details
+
+3. **Run the application**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Access the app**:
+   - Open `http://localhost:5000` in your browser
 
 ## Deploying to GitHub Pages
 
@@ -91,6 +111,28 @@ To use a custom domain with GitHub Pages:
 2. Configure your DNS to point to GitHub Pages
 3. Enable HTTPS in your repository's Pages settings
 
+## Adding Question Banks
+
+### Method 1: Add Files to Bank Folder (Recommended)
+
+1. Create a JSON file in the `bank` folder (e.g., `bank/my-questions.json`)
+2. Follow the format in `bank/README.md`
+3. Restart the server - the question bank will be automatically loaded
+
+### Method 2: Upload via UI
+
+1. Click the "Upload Question Bank" card on the dashboard
+2. Select a JSON file from your computer
+3. The questions will be saved to local storage
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Run production build
+- `npm run normalize-banks` - Convert question banks to standard format
+- `npm run check` - Type check with TypeScript
+
 ## Local Development
 
 ```bash
@@ -99,6 +141,11 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5000`.
+
+## API Endpoints
+
+- `GET /api/question-banks` - Get all question banks from the bank folder
+- `GET /api/question-banks/:id` - Get a specific question bank by ID
 
 ## Technology Stack
 

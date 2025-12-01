@@ -1,5 +1,19 @@
 import type { QuestionBank } from '@/lib/types';
 
+// Fetch question banks from the server API
+export async function fetchQuestionBanksFromServer(): Promise<QuestionBank[]> {
+  try {
+    const response = await fetch('/api/question-banks');
+    if (!response.ok) {
+      throw new Error('Failed to fetch question banks');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching question banks from server:', error);
+    return [];
+  }
+}
+
 export const sampleQuestionBanks: QuestionBank[] = [
   {
     id: 'aws-cloud-practitioner',
@@ -292,11 +306,16 @@ export const sampleQuestionBanks: QuestionBank[] = [
   }
 ];
 
-export function loadSampleQuestionBanks(): void {
+export async function loadSampleQuestionBanks(): Promise<void> {
+  // First, try to load from server
+  const serverBanks = await fetchQuestionBanksFromServer();
+  
   const existingBanks = JSON.parse(localStorage.getItem('exam_portal_question_banks') || '[]');
   const existingIds = new Set(existingBanks.map((b: QuestionBank) => b.id));
   
-  const newBanks = sampleQuestionBanks.filter(b => !existingIds.has(b.id));
+  // Merge server banks with sample banks
+  const allAvailableBanks = [...serverBanks, ...sampleQuestionBanks];
+  const newBanks = allAvailableBanks.filter(b => !existingIds.has(b.id));
   
   if (newBanks.length > 0) {
     const allBanks = [...existingBanks, ...newBanks];
