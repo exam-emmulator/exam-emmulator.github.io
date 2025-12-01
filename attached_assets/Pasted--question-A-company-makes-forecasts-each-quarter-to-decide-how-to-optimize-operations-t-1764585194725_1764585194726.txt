@@ -1,0 +1,34 @@
+[
+  {
+    "question": "A company makes forecasts each quarter to decide how to optimize operations to meet expected demand. The company uses ML models to make these forecasts.\nAn AI practitioner is writing a report about the trained ML models to pro
+vide transparency and explainability to company stakeholders.\nWhat should the AI practitioner include in the report to meet the transparency and explainability requirements?",
+    "options": [
+      "Code for model training",
+      "Partial dependence plots (PDPs)",
+      "Sample data for training",
+      "Model convergence tables"
+    ],
+    "correct_answer": "Partial dependence plots (PDPs)",
+    "explanation": "Partial dependence plots (PDPs) illustrate the marginal effect of one or two features on the predicted outcome of a machine learning model, providing transparency by showing how predictions change as feature values vary, whi
+ch helps stakeholders understand model behavior.",
+    "references": [
+      "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-explainability.html"
+    ],
+    "hint": "Review the key AWS services and concepts related to the question."
+  },
+  {
+    "question": "A law firm wants to build an AI application by using large language models (LLMs). The application will read a transcript of a recorded conversation and provide a summary of the conversation.\nWhich solution meets these require
+ments?",
+    "options": [
+      "Build an automatic named entity recognition system.",
+      "Create a recommendation engine.",
+      "Develop a summarization chatbot.",
+      "Develop a multi-language translation system."
+    ],
+    "correct_answer": "Develop a summarization chatbot.",
+    "explanation": "A summarization chatbot leverages LLMs to condense lengthy text, such as conversation transcripts, into concise summaries by identifying key points and maintaining context.",
+    "references": [
+      "https://aws.amazon.com/blogs/machine-learning/text-summarization-with-amazon-sagemaker-and-hugging-face/"
+    ],
+    "hint": "Review the key AWS services and concepts related to the question."
+  },

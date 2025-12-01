@@ -1,0 +1,321 @@
+[ {
+    "question": "A company makes forecasts each quarter to decide how to optimize operations to meet expected demand. The company uses ML models to make these forecasts.\nAn AI practitioner is writing a report about the trained ML models to provide transparency and explainability to company stakeholders.\nWhat should the AI practitioner include in the report to meet the transparency and explainability requirements?",
+    "options": ["Code for model training", "Partial dependence plots (PDPs)", "Sample data for training", "Model convergence tables"],
+    "correct_answer": "Partial dependence plots (PDPs)",
+    "explanation": "Partial dependence plots (PDPs) illustrate the marginal effect of one or two features on the predicted outcome of a machine learning model, providing transparency by showing how predictions change as feature values vary, which helps stakeholders understand model behavior.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-explainability.html"]
+  },
+  {
+    "question": "A law firm wants to build an AI application by using large language models (LLMs). The application will read a transcript of a recorded conversation and provide a summary of the conversation.\nWhich solution meets these requirements?",
+    "options": ["Build an automatic named entity recognition system.", "Create a recommendation engine.", "Develop a summarization chatbot.", "Develop a multi-language translation system."],
+    "correct_answer": "Develop a summarization chatbot.",
+    "explanation": "A summarization chatbot leverages LLMs to condense lengthy text, such as conversation transcripts, into concise summaries by identifying key points and maintaining context.",
+    "references": ["https://aws.amazon.com/blogs/machine-learning/text-summarization-with-amazon-sagemaker-and-hugging-face/"]
+  },
+  {
+    "question": "A company wants to classify customer feedback into three categories: positive, negative, or neutral. The company needs an ML algorithm that can predict the category of a new piece of feedback.\nWhich ML algorithm meets these requirements?",
+    "options": ["Decision trees", "Linear regression", "Logistic regression", "Neural networks"],
+    "correct_answer": "Logistic regression",
+    "explanation": "Logistic regression is suitable for multiclass classification tasks like sentiment analysis, as it models the probability of each class using a logistic function, making it effective for predicting categories such as positive, negative, or neutral.",
+    "references": ["https://docs.aws.amazon.com/machine-learning/latest/dg/linear-models.html"]
+  },
+  {
+    "question": "A company is using a pre-trained large language model (LLM) to build a chatbot for customer service. The company wants the chatbot to be able to answer questions about its products, even if the information is not in the LLM's training data.\nWhich solution will meet these requirements?",
+    "options": ["Adjust the prompt.", "Choose an LLM of a different size.", "Increase the temperature.", "Use a knowledge base."],
+    "correct_answer": "Use a knowledge base.",
+    "explanation": "Integrating a knowledge base allows the LLM to retrieve and incorporate external, up-to-date information not present in its training data, enabling accurate responses to product-specific queries.",
+    "references": ["https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"]
+  },
+  {
+    "question": "A company uses Amazon SageMaker for its ML pipeline in a production environment. The company has a large number of models that are used infrequently. The company wants to minimize the cost of its ML inference.\nWhich SageMaker inference option meets these requirements?",
+    "options": ["Real-time inference", "Serverless inference", "Asynchronous inference", "Batch transform"],
+    "correct_answer": "Serverless inference",
+    "explanation": "Serverless inference automatically provisions and scales compute resources on demand, eliminating the need for managing infrastructure and reducing costs for infrequently used models by charging only for actual usage.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html"]
+  },
+  {
+    "question": "A company is using a pre-trained model for image classification. The model is not performing well on the company's specific images. The company wants to improve the performance of the model without training a new model from scratch.\nWhich ML strategy meets these requirements?",
+    "options": ["Increase the number of epochs.", "Use transfer learning.", "Decrease the number of epochs.", "Use unsupervised learning."],
+    "correct_answer": "Use transfer learning.",
+    "explanation": "Transfer learning fine-tunes a pre-trained model on a smaller, task-specific dataset, leveraging learned features to improve performance without retraining from scratch.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-fine-tune.html"]
+  },
+  {
+    "question": "A company is building a solution to generate images of clothing for an e-commerce website. The solution must be able to generate a wide variety of clothing styles and colors.\nWhich solution will meet these requirements?",
+    "options": ["Use a generative adversarial network (GAN).", "Use a convolutional neural network (CNN).", "Use a recurrent neural network (RNN).", "Use a support vector machine (SVM)."],
+    "correct_answer": "Use a generative adversarial network (GAN).",
+    "explanation": "GANs consist of a generator that creates new images and a discriminator that evaluates them, enabling the generation of diverse and realistic images like various clothing styles and colors.",
+    "references": ["https://aws.amazon.com/what-is/gan/"]
+  },
+  {
+    "question": "A company wants to create a chatbot by using a foundation model (FM) on Amazon Bedrock. The company wants to ensure that the chatbot's responses are consistent with its brand voice.\nWhich solution will meet these requirements?",
+    "options": ["Use a custom vocabulary.", "Use a custom model.", "Use a custom prompt.", "Use a custom knowledge base."],
+    "correct_answer": "Use a custom prompt.",
+    "explanation": "Custom prompts provide specific instructions, examples, or guidelines to the FM, shaping its responses to align with the desired brand voice and tone.",
+    "references": ["https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html"]
+  },
+  {
+    "question": "A company wants to use language models to create an application that can translate between multiple languages in real time.\nWhich solution will meet these requirements?",
+    "options": ["Use Amazon Translate.", "Use Amazon Polly.", "Use Amazon Transcribe.", "Use Amazon Lex."],
+    "correct_answer": "Use Amazon Translate.",
+    "explanation": "Amazon Translate uses neural machine translation to provide fast, high-quality, real-time translation between multiple languages.",
+    "references": ["https://docs.aws.amazon.com/translate/"]
+  },
+  {
+    "question": "A company has built an image classification model to predict whether a customer will churn. The company wants to understand which factors are most important in the model's predictions.\nWhich evaluation metric should the company use to measure the model's performance?",
+    "options": ["SHAP (SHapley Additive exPlanations)", "Accuracy", "Root mean squared error (RMSE)", "Learning rate"],
+    "correct_answer": "SHAP (SHapley Additive exPlanations)",
+    "explanation": "SHAP calculates Shapley values to explain the contribution of each feature to individual predictions, providing insights into feature importance for model interpretability.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-shapley-values.html"]
+  },
+  {
+    "question": "An e-commerce company wants to improve its product recommendations by using machine learning. The company wants to build a model that can predict which products a customer is likely to buy, based on their past purchase history.\nWhich AWS service should the company use to build this model?",
+    "options": ["Amazon Personalize", "Amazon Kendra", "Amazon SageMaker", "Amazon Lex"],
+    "correct_answer": "Amazon Personalize",
+    "explanation": "Amazon Personalize uses machine learning to analyze historical data and provide personalized product recommendations based on user behavior and preferences.",
+    "references": ["https://docs.aws.amazon.com/personalize/"]
+  },
+  {
+    "question": "A company wants to build a chatbot that can answer customer questions about its products. The company has a large number of documents that contain information about its products. The company wants to use a generative AI model to answer customer questions, but it wants to ensure that the model's answers are based on the information in its documents.\nWhich technique should the company use?",
+    "options": ["Fine-tuning", "Retrieval augmented generation (RAG)", "In-context learning", "Prompt engineering"],
+    "correct_answer": "Retrieval augmented generation (RAG)",
+    "explanation": "RAG retrieves relevant information from external documents and augments the LLM's prompt, ensuring responses are grounded in the provided knowledge base.",
+    "references": ["https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/what-is-rag.html"]
+  },
+  {
+    "question": "A company is building a machine learning model to predict whether a loan application should be approved. The company is concerned that the model may be biased against certain groups of people. The company wants to use a tool to help it to identify and mitigate bias in its model.\nWhich AWS service should the company use?",
+    "options": ["Amazon SageMaker Clarify", "Amazon Macie", "Amazon GuardDuty", "AWS Shield"],
+    "correct_answer": "Amazon SageMaker Clarify",
+    "explanation": "SageMaker Clarify detects and mitigates bias in ML models and datasets, providing tools for fairness analysis and explainability.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-configure-processing-jobs.html"]
+  },
+  {
+    "question": "A company wants to use a generative AI model to create marketing copy for its website. The company wants to ensure that the marketing copy is creative and engaging, but it also wants to ensure that it is not offensive or inappropriate.\nWhich of the following is a good way to control the output of a generative AI model?",
+    "options": ["Use a high temperature setting.", "Use a low temperature setting.", "Use a large number of tokens.", "Use a small number of tokens."],
+    "correct_answer": "Use a low temperature setting.",
+    "explanation": "A low temperature setting reduces randomness in the model's output, making responses more deterministic and less likely to produce inappropriate or offensive content.",
+    "references": ["https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html"]
+  },
+  {
+    "question": "A company is using a generative AI model to create images for its website. The company is concerned that the model may generate images that are not realistic or that are of low quality. The company wants to use a tool to help it to evaluate the quality of the images generated by its model.\nWhich of the following is a good way to evaluate the quality of images generated by a generative AI model?",
+    "options": ["Use a human-in-the-loop workflow.", "Use a high temperature setting.", "Use a low temperature setting.", "Use a large number of tokens."],
+    "correct_answer": "Use a human-in-the-loop workflow.",
+    "explanation": "Human-in-the-loop workflows incorporate human feedback and review to assess and improve the quality, realism, and appropriateness of generated images.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html"]
+  },
+  {
+    "question": "Which AWS services can be used to implement text-to-speech functionality? (Select TWO)",
+    "options": ["Amazon Polly", "Amazon Lex", "Amazon Transcribe", "Amazon Translate"],
+    "correct_answer": ["Amazon Polly", "Amazon Lex"],
+    "explanation": "Amazon Polly provides text-to-speech synthesis, and Amazon Lex includes built-in text-to-speech capabilities for conversational interfaces.",
+    "references": ["https://aws.amazon.com/polly/", "https://docs.aws.amazon.com/lex/"]
+  },
+  {
+    "question": "What are the key components of a Generative Adversarial Network (GAN)? (Select TWO)",
+    "options": ["Generator", "Discriminator", "Encoder", "Decoder"],
+    "correct_answer": ["Generator", "Discriminator"],
+    "explanation": "GANs consist of a generator that creates synthetic data and a discriminator that evaluates its authenticity, training adversarially to improve output quality.",
+    "references": ["https://aws.amazon.com/what-is/gan/"]
+  },
+  {
+    "question": "Which inference options are available in Amazon SageMaker? (Select THREE)",
+    "options": ["Real-time inference", "Batch transform", "Asynchronous inference", "Serverless inference"],
+    "correct_answer": ["Real-time inference", "Batch transform", "Asynchronous inference", "Serverless inference"],
+    "explanation": "SageMaker supports real-time for immediate responses, batch for large datasets, asynchronous for delayed processing, and serverless for on-demand scaling.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html"]
+  },
+  {
+    "question": "Which methods can be used to customize foundation models in Amazon Bedrock? (Select THREE)",
+    "options": ["Fine-tuning", "Retrieval Augmented Generation (RAG)", "Prompt engineering", "Model distillation"],
+    "correct_answer": ["Fine-tuning", "Retrieval Augmented Generation (RAG)", "Prompt engineering"],
+    "explanation": "Fine-tuning adjusts model weights on custom data, RAG augments prompts with retrieved knowledge, and prompt engineering crafts inputs for better responses.",
+    "references": ["https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html", "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html", "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html"]
+  },
+  {
+    "question": "Which bias metrics can Amazon SageMaker Clarify compute? (Select TWO)",
+    "options": ["Demographic parity", "Equal opportunity", "Accuracy", "Precision"],
+    "correct_answer": ["Demographic parity", "Equal opportunity"],
+    "explanation": "SageMaker Clarify calculates metrics like demographic parity (fair representation) and equal opportunity (true positive rates across groups) to detect bias.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-configure-processing-jobs.html"]
+  },
+  {
+    "question": "What is the primary role of Amazon Forecast?",
+    "options": {
+      "A": "To provide real-time recommendations to customers.",
+      "B": "To analyze customer reviews for sentiment.",
+      "C": "To deliver highly accurate forecasts using machine learning.",
+      "D": "To translate text between different languages."
+    },
+    "correct_answer": "C",
+    "explanation": "Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts based on the same technology used at Amazon.com.",
+    "references": ["https://aws.amazon.com/forecast/"]
+  },
+  {
+    "question": "A company wants to identify key entities like product names, dates, and locations from customer support tickets. Which AWS service can accomplish this task?",
+    "options": {
+      "A": "Amazon Transcribe",
+      "B": "Amazon Translate",
+      "C": "Amazon Comprehend",
+      "D": "Amazon Rekognition"
+    },
+    "correct_answer": "C",
+    "explanation": "Amazon Comprehend is a natural-language processing (NLP) service that uses machine learning to find insights and relationships in text, including named entity recognition.",
+    "references": ["https://aws.amazon.com/comprehend/"]
+  },
+  {
+    "question": "Which of the following best describes feature engineering in machine learning?",
+    "options": {
+      "A": "The process of selecting the best machine learning model for a given task.",
+      "B": "The process of creating new features or transforming existing ones to improve model performance.",
+      "C": "The process of evaluating the performance of a machine learning model.",
+      "D": "The process of deploying a machine learning model to production."
+    },
+    "correct_answer": "B",
+    "explanation": "Feature engineering is the process of using domain knowledge to extract features from raw data to make the machine learning algorithm work better.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/feature-engineering.html"]
+  },
+  {
+    "question": "What is the primary concern of the 'Operational Excellence' pillar of the AWS Well-Architected Framework in the context of ML workloads?",
+    "options": {
+      "A": "Maximizing the performance of machine learning models.",
+      "B": "Ensuring the reliability of machine learning applications.",
+      "C": "Running and monitoring systems to deliver business value and continuously improving processes and procedures.",
+      "D": "Minimizing the cost of machine learning resources."
+    },
+    "correct_answer": "C",
+    "explanation": "Operational Excellence focuses on running and monitoring systems to deliver business value and continuously improving supporting processes and procedures, which is critical for ML workloads in production.",
+    "references": ["https://wa.aws.amazon.com/wat.console.aws.amazon.com/wellarchitected/2020-07-02/wa-lens-ml.pdf"]
+  },
+  {
+    "question": "A company wants to build a machine learning model to detect anomalies in sensor data from industrial equipment. Which type of machine learning would be most suitable for this task?",
+    "options": {
+      "A": "Supervised learning",
+      "B": "Unsupervised learning",
+      "C": "Reinforcement learning",
+      "D": "Semi-supervised learning"
+    },
+    "correct_answer": "B",
+    "explanation": "Unsupervised learning, particularly clustering or anomaly detection algorithms, is suitable for identifying unusual patterns in data without prior labels, which is common in anomaly detection scenarios.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html"]
+  },
+  {
+    "question": "Which of the following is a common technique for mitigating overfitting in machine learning models?",
+    "options": {
+      "A": "Increasing the complexity of the model.",
+      "B": "Decreasing the amount of training data.",
+      "C": "Using regularization techniques.",
+      "D": "Increasing the number of features."
+    },
+    "correct_answer": "C",
+    "explanation": "Regularization techniques (e.g., L1, L2) add a penalty to the loss function for large coefficients, discouraging complex models and thus reducing overfitting.",
+    "references": ["https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-and-overfitting.html"]
+  },
+  {
+    "question": "What is the purpose of Amazon Transcribe?",
+    "options": {
+      "A": "To convert text to speech.",
+      "B": "To translate speech between different languages.",
+      "C": "To convert speech to text.",
+      "D": "To identify key phrases and entities in text."
+    },
+    "correct_answer": "C",
+    "explanation": "Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech-to-text capability to their applications.",
+    "references": ["https://aws.amazon.com/transcribe/"]
+  },
+  {
+    "question": "In the context of machine learning, what is a 'learning rate'?",
+    "options": {
+      "A": "The rate at which the model makes predictions.",
+      "B": "The size of the dataset used for training.",
+      "C": "A hyperparameter that controls how much the model's weights are adjusted with respect to the loss gradient.",
+      "D": "The speed at which the model converges during training."
+    },
+    "correct_answer": "C",
+    "explanation": "The learning rate is a crucial hyperparameter that determines the step size at each iteration while moving toward a minimum of the loss function. A learning rate that is too high can cause the model to overshoot, while a learning rate that is too low can lead to slow convergence.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/deep-learning-containers.html"]
+  },
+  {
+    "question": "Which AWS service can be used to analyze video streams in real-time to detect objects, people, and activities?",
+    "options": {
+      "A": "Amazon Textract",
+      "B": "Amazon Rekognition",
+      "C": "Amazon Comprehend Video",
+      "D": "Amazon Transcribe"
+    },
+    "correct_answer": "B",
+    "explanation": "Amazon Rekognition is a deep learning service that makes it easy to add image and video analysis to your applications. It can identify objects, people, text, scenes, and activities, as well as detect inappropriate content.",
+    "references": ["https://aws.amazon.com/rekognition/"]
+  },
+  {
+    "question": "What is the primary goal of the 'Security' pillar of the AWS Well-Architected Framework for ML workloads?",
+    "options": {
+      "A": "To protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.",
+      "B": "To effectively use computing resources and to maintain efficiency as demand changes.",
+      "C": "To build highly resilient ML systems that recover quickly from failures.",
+      "D": "To reduce the cost of ML operations."
+    },
+    "correct_answer": "A",
+    "explanation": "The Security pillar focuses on protecting information and systems, including data, models, and infrastructure, from unauthorized access and malicious activity.",
+    "references": ["https://wa.aws.amazon.com/wat.console.aws.amazon.com/wellarchitected/2020-07-02/wa-lens-ml.pdf"]
+  },
+  {
+    "question": "Which of the following best describes the concept of 'bias' in a machine learning model?",
+    "options": {
+      "A": "The difference between the predicted value and the actual value.",
+      "B": "A systematic error in a model that leads to unfair or inaccurate predictions for certain groups.",
+      "C": "The complexity of the model architecture.",
+      "D": "The speed at which the model makes predictions."
+    },
+    "correct_answer": "B",
+    "explanation": "Bias in machine learning refers to systematic and repeatable errors in a computer system that create unfair outcomes, such as favoring one group over others.",
+    "references": ["https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-concepts.html"]
+  },
+  {
+    "question": "What is the role of Amazon Textract?",
+    "options": {
+      "A": "To convert speech to text.",
+      "B": "To translate text between different languages.",
+      "C": "To extract text and data from scanned documents.",
+      "D": "To analyze sentiment in text."
+    },
+    "correct_answer": "C",
+    "explanation": "Amazon Textract is a machine learning service that automatically extracts text, handwriting, and data from scanned documents that go beyond simple optical character recognition (OCR) to identify fields in forms and information stored in tables.",
+    "references": ["https://aws.amazon.com/textract/"]
+  },
+  {
+    "question": "Which of the following is a key consideration when implementing responsible AI practices?",
+    "options": {
+      "A": "Maximizing model accuracy at all costs.",
+      "B": "Prioritizing model speed over all other factors.",
+      "C": "Ensuring fairness, transparency, and accountability in AI systems.",
+      "D": "Minimizing the computational resources used by AI models."
+    },
+    "correct_answer": "C",
+    "explanation": "Responsible AI emphasizes ethical considerations such as fairness, transparency, and accountability to ensure AI systems are developed and used in a way that benefits society.",
+    "references": ["https://aws.amazon.com/machine-learning/responsible-ai/"]
+  },
+  {
+    "question": "What is the purpose of 'prompt tuning' in generative AI?",
+    "options": {
+      "A": "To pre-train a large language model from scratch.",
+      "B": "To adjust the parameters of a pre-trained model to optimize for specific downstream tasks with minimal data.",
+      "C": "To create new training data for a generative AI model.",
+      "D": "To evaluate the performance of a generative AI model."
+    },
+    "correct_answer": "B",
+    "explanation": "Prompt tuning is a parameter-efficient fine-tuning technique that adds a small, learnable prompt to the input of a pre-trained large language model, allowing the model to adapt to new tasks without updating all model weights.",
+    "references": ["https://aws.amazon.com/blogs/machine-learning/a-brief-overview-of-prompt-tuning/"]
+  },
+  {
+    "question": "Which AWS service is specifically designed for building, training, and deploying large-scale machine learning models with high performance?",
+    "options": {
+      "A": "Amazon Rekognition",
+      "B": "Amazon Comprehend",
+      "C": "Amazon SageMaker",
+      "D": "Amazon Polly"
+    },
+    "correct_answer": "C",
+    "explanation": "Amazon SageMaker is a fully managed service that provides every developer and data scientist with the ability to build, train, and deploy machine learning (ML) models quickly.",
+    "references": ["https://aws.amazon.com/sagemaker/"]
+  }
+]
