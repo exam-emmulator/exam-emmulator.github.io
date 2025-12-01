@@ -4,6 +4,7 @@ A modern exam and practice website that dynamically loads question banks from JS
 
 ## Features
 
+### Core Features
 - **Dynamic Question Banks**: Automatically loads all JSON files from the `bank` folder
 - **Multiple Question Banks**: Upload your own JSON question files or use pre-built sample sets
 - **Exam Mode**: Timed exam experience with question navigation and submit functionality
@@ -12,6 +13,18 @@ A modern exam and practice website that dynamically loads question banks from JS
 - **Local Storage**: All data persists in your browser
 - **Dark/Light Mode**: Toggle between themes for comfortable studying
 - **Responsive Design**: Works on desktop and tablet devices
+
+### Advanced Features
+- **💡 Hints**: Reveal helpful hints in practice mode without giving away answers
+- **📊 Exam Sections**: Organize questions into weighted sections (domains) with individual scoring
+- **🔀 Question Shuffling**: Randomize question order in exam mode to prevent memorization
+- **🎲 Option Shuffling**: Randomize answer options for more challenging practice
+- **⚖️ Weighted Questions**: Assign different point values based on difficulty or importance
+- **🎯 Difficulty Levels**: Label questions as easy, medium, or hard with color-coded badges
+- **✅ Passing Score**: Set minimum passing scores with pass/fail indicators
+- **⏱️ Time Limits**: Configure time limits for realistic exam simulation
+
+See [FEATURES.md](FEATURES.md) for detailed documentation on advanced features.
 
 ## Quick Start
 

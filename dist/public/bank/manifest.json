@@ -1,5 +1,13 @@
 [
   {
+    "id": "advanced-example",
+    "name": "Advanced Features Demo",
+    "description": "Demonstrates sections, weights, hints, shuffling, and difficulty levels",
+    "dateAdded": "2025-12-01T14:00:00Z",
+    "questionCount": 8,
+    "file": "advanced-example.json"
+  },
+  {
     "id": "aws-ai-practitioner",
     "name": "AWS Certified AI Practitioner",
     "description": "Comprehensive practice questions for AWS Certified AI Practitioner (AIF-C01) exam covering AI/ML concepts, AWS services, and best practices.",

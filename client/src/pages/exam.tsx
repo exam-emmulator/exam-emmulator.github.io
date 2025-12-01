@@ -51,6 +51,9 @@ export default function ExamPage({ mode }: ExamPageProps) {
   const [submitDialogOpen, setSubmitDialogOpen] = useState(false);
   const [exitDialogOpen, setExitDialogOpen] = useState(false);
   const [attemptId] = useState(storageService.generateId());
+  const [questionOrder, setQuestionOrder] = useState<number[]>([]);
+  const [optionOrders, setOptionOrders] = useState<Map<number, number[]>>(new Map());
+  const [hintsRevealed, setHintsRevealed] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     if (!bankId) {
@@ -63,7 +66,21 @@ export default function ExamPage({ mode }: ExamPageProps) {
       return;
     }
     setQuestionBank(bank);
-  }, [bankId, setLocation]);
+
+    // Initialize question order (shuffle if enabled and in exam mode)
+    const shouldShuffle = mode === 'exam' && (bank.shuffleQuestions === true);
+    const order = storageService.generateQuestionOrder(bank.questions.length, shouldShuffle);
+    setQuestionOrder(order);
+
+    // Initialize option orders for each question (shuffle if enabled)
+    if (bank.shuffleOptions) {
+      const orders = new Map<number, number[]>();
+      bank.questions.forEach((q, idx) => {
+        orders.set(idx, storageService.generateOptionOrder(q.options.length, true));
+      });
+      setOptionOrders(orders);
+    }
+  }, [bankId, setLocation, mode]);
 
   useEffect(() => {
     if (mode === 'exam') {
@@ -74,9 +91,21 @@ export default function ExamPage({ mode }: ExamPageProps) {
     }
   }, [mode]);
 
-  const currentQuestion = questionBank?.questions[currentIndex];
+  // Get actual question index (considering shuffling)
+  const actualQuestionIndex = questionOrder.length > 0 ? questionOrder[currentIndex] : currentIndex;
+  const currentQuestion = questionBank?.questions[actualQuestionIndex];
   const totalQuestions = questionBank?.questions.length || 0;
   const isMultiSelect = currentQuestion ? storageService.isMultiSelect(currentQuestion) : false;
+
+  // Get shuffled options if enabled
+  const getShuffledOptions = useCallback(() => {
+    if (!currentQuestion) return [];
+    const optionOrder = optionOrders.get(actualQuestionIndex);
+    if (!optionOrder) return currentQuestion.options;
+    return optionOrder.map(idx => currentQuestion.options[idx]);
+  }, [currentQuestion, optionOrders, actualQuestionIndex]);
+
+  const shuffledOptions = getShuffledOptions();
 
   const parseCorrectAnswers = useCallback((correctAnswer: string | string[]): string[] => {
     return storageService.getCorrectAnswersDisplay({ correct_answer: correctAnswer } as any);
@@ -94,7 +123,7 @@ export default function ExamPage({ mode }: ExamPageProps) {
     setAnswers(newAnswers);
 
     if (mode === 'practice' && !practiceAnswered.has(currentIndex)) {
-      setPracticeAnswered(new Set([...practiceAnswered, currentIndex]));
+      setPracticeAnswered(new Set([...Array.from(practiceAnswered), currentIndex]));
       setShowFeedback(true);
     }
   };
@@ -116,13 +145,13 @@ export default function ExamPage({ mode }: ExamPageProps) {
 
   const submitMultiSelectAnswer = () => {
     if (mode === 'practice' && !practiceAnswered.has(currentIndex)) {
-      setPracticeAnswered(new Set([...practiceAnswered, currentIndex]));
+      setPracticeAnswered(new Set([...Array.from(practiceAnswered), currentIndex]));
       setShowFeedback(true);
     }
   };
 
   const toggleFlag = () => {
-    const newFlagged = new Set(flagged);
+    const newFlagged = new Set(Array.from(flagged));
     if (newFlagged.has(currentIndex)) {
       newFlagged.delete(currentIndex);
     } else {
@@ -150,23 +179,47 @@ export default function ExamPage({ mode }: ExamPageProps) {
     }
   };
 
+  const revealHint = () => {
+    setHintsRevealed(new Set([...Array.from(hintsRevealed), actualQuestionIndex]));
+  };
+
   const submitExam = () => {
     if (!questionBank) return;
 
-    const userAnswers: UserAnswer[] = questionBank.questions.map((_, index) => {
+    const userAnswers: UserAnswer[] = questionBank.questions.map((question, index) => {
       const selected = answers.get(index) || [];
       const isCorrect = checkAnswer(index, selected);
+      const weight = question.weight || 1;
+      
       return {
         questionIndex: index,
         selectedOptions: selected,
         isCorrect,
+        pointsEarned: isCorrect ? weight : 0,
+        pointsPossible: weight,
+        section: question.section,
+        usedHint: hintsRevealed.has(index),
       };
     });
 
     const correctCount = userAnswers.filter(a => a.isCorrect).length;
     const wrongCount = userAnswers.filter(a => a.selectedOptions.length > 0 && !a.isCorrect).length;
     const skippedCount = userAnswers.filter(a => a.selectedOptions.length === 0).length;
-    const score = Math.round((correctCount / totalQuestions) * 100);
+    
+    // Calculate weighted score
+    const { totalPoints, earnedPoints, score } = storageService.calculateWeightedScore(
+      userAnswers,
+      questionBank.questions
+    );
+
+    // Calculate section scores if sections are defined
+    const sectionScores = storageService.calculateSectionScores(
+      userAnswers,
+      questionBank.questions,
+      questionBank.sections
+    );
+
+    const passed = questionBank.passingScore ? score >= questionBank.passingScore : undefined;
 
     const attempt: ExamAttempt = {
       id: attemptId,
@@ -181,6 +234,10 @@ export default function ExamPage({ mode }: ExamPageProps) {
       wrongCount,
       skippedCount,
       score,
+      totalPoints,
+      earnedPoints,
+      sectionScores,
+      passed,
       completed: true,
     };
 
@@ -282,13 +339,34 @@ export default function ExamPage({ mode }: ExamPageProps) {
             <Card>
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <Badge variant="outline" className="text-base font-mono px-3 py-1">
                       {currentIndex + 1}
                     </Badge>
                     {isMultiSelect && (
                       <Badge variant="secondary" className="text-xs">
                         Multiple Select
+                      </Badge>
+                    )}
+                    {currentQuestion.section && (
+                      <Badge variant="outline" className="text-xs">
+                        {currentQuestion.section}
+                      </Badge>
+                    )}
+                    {currentQuestion.weight && currentQuestion.weight !== 1 && (
+                      <Badge variant="outline" className="text-xs">
+                        {currentQuestion.weight} {currentQuestion.weight === 1 ? 'point' : 'points'}
+                      </Badge>
+                    )}
+                    {currentQuestion.difficulty && (
+                      <Badge 
+                        variant={
+                          currentQuestion.difficulty === 'easy' ? 'secondary' :
+                          currentQuestion.difficulty === 'hard' ? 'destructive' : 'default'
+                        }
+                        className="text-xs"
+                      >
+                        {currentQuestion.difficulty}
                       </Badge>
                     )}
                     {flagged.has(currentIndex) && (
@@ -310,10 +388,37 @@ export default function ExamPage({ mode }: ExamPageProps) {
                   {currentQuestion.question}
                 </p>
 
+                {/* Hint Section */}
+                {currentQuestion.hint && mode === 'practice' && (
+                  <div className="space-y-2">
+                    {!hintsRevealed.has(actualQuestionIndex) ? (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={revealHint}
+                        className="text-xs"
+                      >
+                        💡 Show Hint
+                      </Button>
+                    ) : (
+                      <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+                        <CardContent className="pt-4">
+                          <p className="text-sm font-medium text-blue-900 dark:text-blue-100 mb-1">
+                            💡 Hint
+                          </p>
+                          <p className="text-sm text-blue-800 dark:text-blue-200">
+                            {currentQuestion.hint}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    )}
+                  </div>
+                )}
+
                 <div className="space-y-3">
                   {isMultiSelect ? (
                     <>
-                      {currentQuestion.options.map((option, optIndex) => {
+                      {shuffledOptions.map((option, optIndex) => {
                         const isSelected = (answers.get(currentIndex) || []).includes(option);
                         const correctAnswers = parseCorrectAnswers(currentQuestion.correct_answer);
                         const isCorrect = correctAnswers.includes(option);
@@ -363,7 +468,7 @@ export default function ExamPage({ mode }: ExamPageProps) {
                       onValueChange={handleSingleSelect}
                       disabled={showFeedback}
                     >
-                      {currentQuestion.options.map((option, optIndex) => {
+                      {shuffledOptions.map((option, optIndex) => {
                         const isSelected = (answers.get(currentIndex) || [])[0] === option;
                         const correctAnswers = parseCorrectAnswers(currentQuestion.correct_answer);
                         const isCorrect = correctAnswers.includes(option);

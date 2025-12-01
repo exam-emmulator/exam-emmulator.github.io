@@ -1,4 +1,4 @@
-import type { QuestionBank, ExamAttempt, UserStats, ExamSession, Question } from './types';
+import type { QuestionBank, ExamAttempt, UserStats, ExamSession, Question, UserAnswer, ExamSection } from './types';
 
 const STORAGE_KEYS = {
   QUESTION_BANKS: 'exam_portal_question_banks',
@@ -203,5 +203,90 @@ export const storageService = {
       return question.correct_answer;
     }
     return question.correct_answer.split(',').map(a => a.trim());
+  },
+
+  // Shuffle array using Fisher-Yates algorithm
+  shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  },
+
+  // Generate shuffled question order
+  generateQuestionOrder(questionCount: number, shuffle: boolean): number[] {
+    const order = Array.from({ length: questionCount }, (_, i) => i);
+    return shuffle ? this.shuffleArray(order) : order;
+  },
+
+  // Generate shuffled option order for a question
+  generateOptionOrder(optionCount: number, shuffle: boolean): number[] {
+    const order = Array.from({ length: optionCount }, (_, i) => i);
+    return shuffle ? this.shuffleArray(order) : order;
+  },
+
+  // Calculate weighted score
+  calculateWeightedScore(answers: UserAnswer[], questions: Question[]): {
+    totalPoints: number;
+    earnedPoints: number;
+    score: number;
+  } {
+    let totalPoints = 0;
+    let earnedPoints = 0;
+
+    answers.forEach((answer) => {
+      const question = questions[answer.questionIndex];
+      const weight = question?.weight || 1;
+      totalPoints += weight;
+      if (answer.isCorrect) {
+        earnedPoints += weight;
+      }
+    });
+
+    const score = totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
+    return { totalPoints, earnedPoints, score };
+  },
+
+  // Calculate section scores
+  calculateSectionScores(
+    answers: UserAnswer[],
+    questions: Question[],
+    sections?: ExamSection[]
+  ): { section: string; score: number; weight: number }[] {
+    if (!sections || sections.length === 0) return [];
+
+    const sectionResults = sections.map((section) => {
+      const sectionQuestions = questions
+        .map((q, idx) => ({ question: q, index: idx }))
+        .filter(({ question }) => question.section === section.name);
+
+      const sectionAnswers = answers.filter((a) =>
+        sectionQuestions.some((sq) => sq.index === a.questionIndex)
+      );
+
+      let totalPoints = 0;
+      let earnedPoints = 0;
+
+      sectionAnswers.forEach((answer) => {
+        const question = questions[answer.questionIndex];
+        const weight = question?.weight || 1;
+        totalPoints += weight;
+        if (answer.isCorrect) {
+          earnedPoints += weight;
+        }
+      });
+
+      const score = totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
+
+      return {
+        section: section.name,
+        score,
+        weight: section.weight,
+      };
+    });
+
+    return sectionResults;
   },
 };

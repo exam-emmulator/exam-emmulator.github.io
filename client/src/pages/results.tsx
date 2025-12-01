@@ -215,6 +215,100 @@ export default function ResultsPage() {
           </CardContent>
         </Card>
 
+        {/* Section Scores */}
+        {attempt.sectionScores && attempt.sectionScores.length > 0 && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle className="text-lg">Performance by Section</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {attempt.sectionScores.map((section, idx) => (
+                <div key={idx} className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex-1">
+                      <p className="font-medium">{section.section}</p>
+                      <p className="text-sm text-muted-foreground">
+                        Weight: {section.weight}% of total score
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className={`text-2xl font-bold ${
+                        section.score >= 80 ? 'text-chart-2' :
+                        section.score >= 60 ? 'text-chart-4' :
+                        'text-destructive'
+                      }`}>
+                        {section.score}%
+                      </p>
+                    </div>
+                  </div>
+                  <Progress value={section.score} className="h-2" />
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Weighted Score Info */}
+        {attempt.totalPoints && attempt.totalPoints > attempt.totalQuestions && (
+          <Card className="mb-8 bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+            <CardContent className="pt-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">
+                    Weighted Scoring
+                  </p>
+                  <p className="text-sm text-blue-800 dark:text-blue-200 mt-1">
+                    Questions have different point values based on difficulty
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">
+                    {attempt.earnedPoints}/{attempt.totalPoints}
+                  </p>
+                  <p className="text-sm text-blue-800 dark:text-blue-200">
+                    points earned
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Pass/Fail Status */}
+        {attempt.passed !== undefined && questionBank?.passingScore && (
+          <Card className={`mb-8 ${
+            attempt.passed 
+              ? 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800'
+              : 'bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800'
+          }`}>
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-4">
+                {attempt.passed ? (
+                  <CheckCircle2 className="h-12 w-12 text-green-600 dark:text-green-400" />
+                ) : (
+                  <XCircle className="h-12 w-12 text-red-600 dark:text-red-400" />
+                )}
+                <div>
+                  <p className={`text-2xl font-bold ${
+                    attempt.passed 
+                      ? 'text-green-900 dark:text-green-100'
+                      : 'text-red-900 dark:text-red-100'
+                  }`}>
+                    {attempt.passed ? 'Passed!' : 'Not Passed'}
+                  </p>
+                  <p className={`text-sm ${
+                    attempt.passed 
+                      ? 'text-green-800 dark:text-green-200'
+                      : 'text-red-800 dark:text-red-200'
+                  }`}>
+                    Passing score: {questionBank.passingScore}% • Your score: {attempt.score}%
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {questionBank && (
           <Card>
             <CardHeader>

@@ -1,0 +1,153 @@
+feat: Add advanced exam features - hints, sections, shuffling, weighted scoring
+
+## New Features
+
+### 1. Hints (Practice Mode) 💡
+- Students can reveal hints without seeing answers
+- Only available in practice mode
+- Tracked in attempt history
+- UI: Blue card with "💡 Show Hint" button
+
+### 2. Exam Sections with Weights 📊
+- Organize questions into domains/sections
+- Assign percentage weights to each section
+- Results show performance by section
+- Color-coded progress bars
+
+### 3. Question Shuffling 🔀
+- Randomize question order in exam mode
+- Prevents memorization of sequence
+- Shuffled once per attempt
+- Practice mode shows original order
+
+### 4. Option Shuffling 🎲
+- Randomize answer option order
+- Works in both exam and practice modes
+- Prevents position-based memorization
+- Correct answer tracked by text
+
+### 5. Weighted Questions ⚖️
+- Assign different point values (default: 1)
+- Complex questions can be worth more points
+- Final score: (earned points / total points) × 100
+- Results show "X/Y points earned"
+
+### 6. Difficulty Levels 🎯
+- Label questions as easy, medium, or hard
+- Color-coded badges (green, blue, red)
+- Helps set student expectations
+- Combine with weighted scoring
+
+### 7. Passing Score ✅
+- Set minimum score to pass (e.g., 72%)
+- Results show "Passed" or "Not Passed"
+- Color-coded card (green/red)
+- Useful for certification exams
+
+### 8. Time Limits ⏱️
+- Set time limit in minutes
+- Timer displayed in exam mode
+- Format: HH:MM:SS
+- Simulates real exam conditions
+
+## Files Changed
+
+### Core
+- client/src/lib/types.ts - Extended types for all new features
+- client/src/lib/storage.ts - Added shuffling and scoring functions
+- client/src/pages/exam.tsx - Implemented hints, shuffling, weighted scoring
+- client/src/pages/results.tsx - Added section scores, pass/fail, weighted results
+
+### Documentation
+- FEATURES.md - Comprehensive guide (new)
+- NEW_FEATURES_SUMMARY.md - Quick reference (new)
+- bank/README.md - Updated with all new fields
+- README.md - Updated features list
+
+### Examples
+- bank/advanced-example.json - Demonstrates all features (new)
+
+## Example Usage
+
+```json
+{
+  "id": "certification-exam",
+  "name": "AWS Solutions Architect",
+  "shuffleQuestions": true,
+  "shuffleOptions": true,
+  "passingScore": 72,
+  "timeLimit": 130,
+  "sections": [
+    {
+      "name": "Domain 1: Design",
+      "weight": 30
+    }
+  ],
+  "questions": [
+    {
+      "question": "Design a highly available architecture...",
+      "options": ["A", "B", "C", "D"],
+      "correct_answer": "B",
+      "explanation": "...",
+      "hint": "Think about multiple AZs",
+      "section": "Domain 1: Design",
+      "weight": 2,
+      "difficulty": "medium"
+    }
+  ]
+}
+```
+
+## Benefits
+
+### For Students
+- Hints reduce frustration in practice mode
+- Section scores identify knowledge gaps
+- Shuffling prevents memorization
+- Clear pass/fail feedback
+
+### For Educators
+- Weighted questions emphasize key topics
+- Section analysis shows performance patterns
+- Shuffling reduces cheating
+- Realistic exam simulation
+
+### For Certification Prep
+- Matches real exam structure
+- Realistic time pressure
+- Domain-based scoring
+- Pass/fail thresholds
+
+## Backward Compatibility
+
+✅ All features are optional
+✅ Existing question banks work without changes
+✅ No breaking changes
+✅ Graceful degradation
+
+## Testing
+
+- ✅ TypeScript compilation passes
+- ✅ Build completes successfully
+- ✅ All diagnostics clean
+- ✅ Example files validated
+- ✅ 3 question banks included
+
+## Documentation
+
+See detailed documentation:
+- FEATURES.md - Complete feature guide
+- bank/README.md - JSON format reference
+- NEW_FEATURES_SUMMARY.md - Quick summary
+- bank/advanced-example.json - Working example
+
+## Next Steps
+
+1. Deploy to GitHub Pages
+2. Test all features in browser
+3. Gather user feedback
+4. Consider future enhancements:
+   - Auto-submit on time expiry
+   - Partial credit for multi-select
+   - Question pools
+   - Analytics dashboard

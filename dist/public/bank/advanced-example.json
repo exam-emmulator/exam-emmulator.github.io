@@ -1,0 +1,150 @@
+{
+  "id": "advanced-example",
+  "name": "Advanced Features Demo",
+  "description": "Demonstrates sections, weights, hints, shuffling, and difficulty levels",
+  "dateAdded": "2025-12-01T14:00:00Z",
+  "shuffleQuestions": true,
+  "shuffleOptions": true,
+  "passingScore": 70,
+  "timeLimit": 15,
+  "sections": [
+    {
+      "name": "Fundamentals",
+      "description": "Basic concepts and terminology",
+      "weight": 40
+    },
+    {
+      "name": "Advanced Topics",
+      "description": "Complex scenarios and best practices",
+      "weight": 60
+    }
+  ],
+  "questions": [
+    {
+      "question": "What is the capital of France?",
+      "options": [
+        "London",
+        "Berlin",
+        "Paris",
+        "Madrid"
+      ],
+      "correct_answer": "Paris",
+      "explanation": "Paris has been the capital of France since the 10th century.",
+      "hint": "It's known as the 'City of Light'",
+      "section": "Fundamentals",
+      "weight": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following are prime numbers? (Select TWO)",
+      "options": [
+        "15",
+        "17",
+        "19",
+        "21"
+      ],
+      "correct_answer": [
+        "17",
+        "19"
+      ],
+      "explanation": "17 and 19 are prime numbers (only divisible by 1 and themselves). 15 = 3×5 and 21 = 3×7.",
+      "hint": "Prime numbers are only divisible by 1 and themselves",
+      "section": "Fundamentals",
+      "weight": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the time complexity of binary search?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(1)"
+      ],
+      "correct_answer": "O(log n)",
+      "explanation": "Binary search divides the search space in half with each iteration, resulting in logarithmic time complexity.",
+      "hint": "Think about how the search space is reduced",
+      "section": "Advanced Topics",
+      "weight": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "In a distributed system, which theorem states that you can only guarantee two out of three properties: Consistency, Availability, and Partition tolerance?",
+      "options": [
+        "ACID theorem",
+        "BASE theorem",
+        "CAP theorem",
+        "SOLID principles"
+      ],
+      "correct_answer": "CAP theorem",
+      "explanation": "The CAP theorem, proposed by Eric Brewer, states that a distributed system can only provide two of the three guarantees: Consistency, Availability, and Partition tolerance.",
+      "hint": "The acronym matches the three properties",
+      "section": "Advanced Topics",
+      "weight": 3,
+      "difficulty": "hard",
+      "references": [
+        "https://en.wikipedia.org/wiki/CAP_theorem"
+      ]
+    },
+    {
+      "question": "What does HTTP stand for?",
+      "options": [
+        "HyperText Transfer Protocol",
+        "High Transfer Text Protocol",
+        "HyperText Transmission Process",
+        "High Tech Transfer Protocol"
+      ],
+      "correct_answer": "HyperText Transfer Protocol",
+      "explanation": "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the World Wide Web.",
+      "hint": "It's about transferring hypertext",
+      "section": "Fundamentals",
+      "weight": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which design pattern ensures a class has only one instance?",
+      "options": [
+        "Factory Pattern",
+        "Singleton Pattern",
+        "Observer Pattern",
+        "Strategy Pattern"
+      ],
+      "correct_answer": "Singleton Pattern",
+      "explanation": "The Singleton pattern restricts the instantiation of a class to a single instance and provides global access to it.",
+      "hint": "The name suggests 'single'",
+      "section": "Advanced Topics",
+      "weight": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the result of 2 + 2?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "22"
+      ],
+      "correct_answer": "4",
+      "explanation": "Basic arithmetic: 2 + 2 = 4",
+      "hint": "It's basic math!",
+      "section": "Fundamentals",
+      "weight": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "In object-oriented programming, which principle states that objects should be open for extension but closed for modification?",
+      "options": [
+        "Single Responsibility Principle",
+        "Open/Closed Principle",
+        "Liskov Substitution Principle",
+        "Interface Segregation Principle"
+      ],
+      "correct_answer": "Open/Closed Principle",
+      "explanation": "The Open/Closed Principle (OCP) is one of the SOLID principles, stating that software entities should be open for extension but closed for modification.",
+      "hint": "The name describes the principle directly",
+      "section": "Advanced Topics",
+      "weight": 3,
+      "difficulty": "hard"
+    }
+  ]
+}
