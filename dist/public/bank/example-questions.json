@@ -1,0 +1,44 @@
+{
+  "id": "example-questions",
+  "name": "Example Question Bank",
+  "description": "A simple example question bank to demonstrate the format",
+  "dateAdded": "2025-12-01T12:00:00Z",
+  "questions": [
+    {
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "High Tech Modern Language",
+        "Home Tool Markup Language",
+        "Hyperlinks and Text Markup Language"
+      ],
+      "correct_answer": "Hyper Text Markup Language",
+      "explanation": "HTML stands for Hyper Text Markup Language, which is the standard markup language for creating web pages."
+    },
+    {
+      "question": "Which of the following are programming languages? (Select TWO)",
+      "options": [
+        "Python",
+        "HTML",
+        "JavaScript",
+        "CSS"
+      ],
+      "correct_answer": [
+        "Python",
+        "JavaScript"
+      ],
+      "explanation": "Python and JavaScript are programming languages. HTML and CSS are markup and styling languages respectively."
+    },
+    {
+      "question": "What is the purpose of CSS?",
+      "options": [
+        "To structure web content",
+        "To style and layout web pages",
+        "To add interactivity to web pages",
+        "To store data"
+      ],
+      "correct_answer": "To style and layout web pages",
+      "explanation": "CSS (Cascading Style Sheets) is used to style and layout web pages, including colors, fonts, spacing, and responsive design."
+    }
+  ]
+}

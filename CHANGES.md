@@ -140,6 +140,46 @@ To verify the changes work:
 
 None. All changes are backward compatible.
 
+## GitHub Pages Support
+
+### Static Build Process (script/build-static.ts)
+- **Added**: Automatic copying of `bank` folder to `dist/public/bank/`
+- **Added**: Generation of `manifest.json` with metadata for all question banks
+- **Updated**: Build process ensures all question banks are included in static deployment
+
+### Client-Side Fallback (client/src/data/sample-questions.ts)
+- **Updated**: `fetchQuestionBanksFromServer()` now tries API first, then falls back to static files
+- **Added**: Support for loading from `/bank/manifest.json` and individual bank files
+- Works seamlessly in both development (with server) and production (GitHub Pages)
+
+### How It Works on GitHub Pages
+
+1. **Build Time**: 
+   - GitHub Actions runs `npx tsx script/build-static.ts`
+   - All JSON files from `bank` folder are copied to `dist/public/bank/`
+   - A `manifest.json` file is created listing all available banks
+
+2. **Runtime**:
+   - Client tries to fetch from `/api/question-banks` (fails on GitHub Pages)
+   - Falls back to fetching `/bank/manifest.json`
+   - Loads each bank file individually from `/bank/*.json`
+   - Merges with hardcoded sample banks
+   - Saves to localStorage
+
+### Deployment
+
+Simply push to main/master branch:
+```bash
+git add bank/your-new-questions.json
+git commit -m "Add new question bank"
+git push origin main
+```
+
+GitHub Actions will automatically:
+1. Build the static site
+2. Include all bank files
+3. Deploy to GitHub Pages
+
 ## Future Enhancements
 
 Potential improvements:
@@ -148,3 +188,5 @@ Potential improvements:
 - Search and filter API
 - Question bank metadata (difficulty, tags, categories)
 - Export/import functionality via API
+- Progressive loading of large question banks
+- Caching strategy for bank files

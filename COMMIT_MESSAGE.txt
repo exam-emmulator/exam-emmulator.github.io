@@ -1,0 +1,54 @@
+Fix: Enable dynamic question bank loading on GitHub Pages
+
+## Problem
+Question banks from the `bank` folder were not appearing when deployed to GitHub Pages because the application relied on server-side API endpoints that don't work with static hosting.
+
+## Solution
+Implemented a hybrid approach that works in both development and production:
+
+### Build-Time Processing
+- Modified `script/build-static.ts` to copy all bank JSON files to `dist/public/bank/`
+- Generate `manifest.json` with metadata for all question banks
+- Ensure all banks are included in the static build
+
+### Client-Side Fallback
+- Updated `client/src/data/sample-questions.ts` to try API first, then fall back to static files
+- Load banks from `/bank/manifest.json` and individual files when API is unavailable
+- Seamless experience in both development (with server) and production (GitHub Pages)
+
+### Files Changed
+- script/build-static.ts - Added bank folder processing
+- client/src/data/sample-questions.ts - Added static file fallback
+- bank/aws_ai_practitioner_bank.json - Normalized format (105 questions)
+- bank/example-questions.json - Added example bank (3 questions)
+
+### Files Created
+- bank/README.md - Question bank format guide
+- DEPLOYMENT.md - Comprehensive deployment guide
+- GITHUB_PAGES_FIX.md - Detailed fix documentation
+- CHANGES.md - Complete change log
+- verify-setup.sh - Setup verification script
+- script/normalize-bank.ts - JSON format normalization tool
+
+### Features
+✅ Automatic loading of all JSON files from bank folder
+✅ Works on GitHub Pages without server
+✅ Backward compatible with development mode
+✅ Easy to add new question banks (just add JSON files)
+✅ Automatic deployment via GitHub Actions
+
+### Testing
+- [x] Build completes successfully
+- [x] Bank files copied to dist/public/bank/
+- [x] manifest.json generated correctly
+- [x] Local testing works (npx serve dist/public)
+- [x] Question banks load in browser
+- [x] Both dev and prod modes work
+
+### Deployment
+Simply push to main branch - GitHub Actions will automatically:
+1. Build the static site
+2. Include all bank files
+3. Deploy to GitHub Pages
+
+See DEPLOYMENT.md for detailed instructions.

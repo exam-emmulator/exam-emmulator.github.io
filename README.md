@@ -32,6 +32,10 @@ A modern exam and practice website that dynamically loads question banks from JS
 4. **Access the app**:
    - Open `http://localhost:5000` in your browser
 
+5. **Deploy to GitHub Pages**:
+   - See `DEPLOYMENT.md` for detailed instructions
+   - Simply push to main branch for automatic deployment
+
 ## Deploying to GitHub Pages
 
 ### Automatic Deployment
@@ -39,8 +43,11 @@ A modern exam and practice website that dynamically loads question banks from JS
 1. Push this repository to GitHub
 2. Go to your repository **Settings** > **Pages**
 3. Under "Build and deployment", select **GitHub Actions** as the source
-4. Push any changes to the `main` or `master` branch to trigger a deployment
-5. Your site will be available at `https://<username>.github.io/<repository-name>/`
+4. Add your question bank JSON files to the `bank` folder
+5. Push any changes to the `main` or `master` branch to trigger a deployment
+6. Your site will be available at `https://<username>.github.io/<repository-name>/`
+
+**Note**: All JSON files in the `bank` folder will be automatically included in the build and deployed to GitHub Pages.
 
 ### Manual Build
 
@@ -51,7 +58,15 @@ npm install
 npx tsx script/build-static.ts
 ```
 
-The output will be in the `dist/public` directory.
+The output will be in the `dist/public` directory, including:
+- All static assets
+- Question bank files in `dist/public/bank/`
+- A manifest file at `dist/public/bank/manifest.json`
+
+To test the build locally:
+```bash
+npx serve dist/public
+```
 
 ## JSON Question Format
 

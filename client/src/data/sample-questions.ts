@@ -1,15 +1,43 @@
 import type { QuestionBank } from '@/lib/types';
 
-// Fetch question banks from the server API
+// Fetch question banks from the server API or static files
 export async function fetchQuestionBanksFromServer(): Promise<QuestionBank[]> {
   try {
-    const response = await fetch('/api/question-banks');
-    if (!response.ok) {
-      throw new Error('Failed to fetch question banks');
+    // Try API first (for development with server)
+    const apiResponse = await fetch('/api/question-banks');
+    if (apiResponse.ok) {
+      return await apiResponse.json();
     }
-    return await response.json();
   } catch (error) {
-    console.error('Error fetching question banks from server:', error);
+    console.log('API not available, trying static files...');
+  }
+  
+  // Fallback to static files (for GitHub Pages)
+  try {
+    const manifestResponse = await fetch('/bank/manifest.json');
+    if (!manifestResponse.ok) {
+      throw new Error('Failed to fetch manifest');
+    }
+    
+    const manifest = await manifestResponse.json();
+    const banks: QuestionBank[] = [];
+    
+    // Fetch each bank file
+    for (const item of manifest) {
+      try {
+        const bankResponse = await fetch(`/bank/${item.file}`);
+        if (bankResponse.ok) {
+          const bank = await bankResponse.json();
+          banks.push(bank);
+        }
+      } catch (err) {
+        console.error(`Failed to load bank ${item.file}:`, err);
+      }
+    }
+    
+    return banks;
+  } catch (error) {
+    console.error('Error fetching question banks from static files:', error);
     return [];
   }
 }

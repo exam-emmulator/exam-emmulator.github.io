@@ -1,0 +1,18 @@
+[
+  {
+    "id": "aws-ai-practitioner",
+    "name": "AWS Certified AI Practitioner",
+    "description": "Comprehensive practice questions for AWS Certified AI Practitioner (AIF-C01) exam covering AI/ML concepts, AWS services, and best practices.",
+    "dateAdded": "2025-12-01T10:59:45Z",
+    "questionCount": 105,
+    "file": "aws_ai_practitioner_bank.json"
+  },
+  {
+    "id": "example-questions",
+    "name": "Example Question Bank",
+    "description": "A simple example question bank to demonstrate the format",
+    "dateAdded": "2025-12-01T12:00:00Z",
+    "questionCount": 3,
+    "file": "example-questions.json"
+  }
+]
