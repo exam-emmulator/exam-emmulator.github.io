@@ -71,6 +71,8 @@ export const storageService = {
       const data = localStorage.getItem(STORAGE_KEYS.CURRENT_SESSION);
       if (!data) return null;
       const session = JSON.parse(data);
+      
+      // Restore answers map
       const answersMap = new Map<number, string[]>();
       if (session.answers) {
         Object.entries(session.answers).forEach(([key, value]) => {
@@ -78,11 +80,30 @@ export const storageService = {
         });
       }
       session.answers = answersMap;
+      
+      // Restore flagged questions set
       session.flaggedQuestions = new Set<number>(
         (session.flaggedQuestions || []).map((n: number | string) => 
           typeof n === 'string' ? parseInt(n, 10) : n
         )
       );
+      
+      // Restore hints used set
+      session.hintsUsed = new Set<number>(
+        (session.hintsUsed || []).map((n: number | string) => 
+          typeof n === 'string' ? parseInt(n, 10) : n
+        )
+      );
+      
+      // Restore option orders map
+      const optionOrdersMap = new Map<number, number[]>();
+      if (session.optionOrders) {
+        Object.entries(session.optionOrders).forEach(([key, value]) => {
+          optionOrdersMap.set(parseInt(key, 10), value as number[]);
+        });
+      }
+      session.optionOrders = optionOrdersMap;
+      
       return session;
     } catch {
       return null;
@@ -94,15 +115,29 @@ export const storageService = {
       localStorage.removeItem(STORAGE_KEYS.CURRENT_SESSION);
       return;
     }
+    
+    // Serialize answers map
     const answersObj: Record<string, string[]> = {};
     session.answers.forEach((value, key) => {
       answersObj[key.toString()] = value;
     });
+    
+    // Serialize option orders map
+    const optionOrdersObj: Record<string, number[]> = {};
+    if (session.optionOrders) {
+      session.optionOrders.forEach((value, key) => {
+        optionOrdersObj[key.toString()] = value;
+      });
+    }
+    
     const serializable = {
       ...session,
       answers: answersObj,
       flaggedQuestions: Array.from(session.flaggedQuestions),
+      hintsUsed: session.hintsUsed ? Array.from(session.hintsUsed) : [],
+      optionOrders: optionOrdersObj,
     };
+    
     localStorage.setItem(STORAGE_KEYS.CURRENT_SESSION, JSON.stringify(serializable));
   },
 
@@ -187,8 +222,15 @@ export const storageService = {
     const correctAnswers = this.parseCorrectAnswers(question.correct_answer);
     const normalizedSelected = selectedAnswers.map(a => a.trim().toLowerCase());
     
+    // Must have same number of answers
     if (normalizedSelected.length !== correctAnswers.length) return false;
-    return normalizedSelected.every(a => correctAnswers.includes(a));
+    
+    // Sort both arrays for comparison
+    const sortedCorrect = [...correctAnswers].sort();
+    const sortedSelected = [...normalizedSelected].sort();
+    
+    // Check if all answers match
+    return sortedCorrect.every((answer, idx) => answer === sortedSelected[idx]);
   },
 
   isMultiSelect(question: Question): boolean {

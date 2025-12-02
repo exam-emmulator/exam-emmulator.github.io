@@ -30,7 +30,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { storageService } from "@/lib/storage";
-import type { Question, QuestionBank, ExamAttempt, UserAnswer, ExamMode } from "@/lib/types";
+import type { Question, QuestionBank, ExamAttempt, UserAnswer, ExamMode, ExamSession } from "@/lib/types";
 
 interface ExamPageProps {
   mode: ExamMode;
@@ -46,11 +46,11 @@ export default function ExamPage({ mode }: ExamPageProps) {
   const [flagged, setFlagged] = useState<Set<number>>(new Set());
   const [showFeedback, setShowFeedback] = useState(false);
   const [practiceAnswered, setPracticeAnswered] = useState<Set<number>>(new Set());
-  const [startTime] = useState(new Date().toISOString());
+  const [startTime, setStartTime] = useState(new Date().toISOString());
   const [elapsedTime, setElapsedTime] = useState(0);
   const [submitDialogOpen, setSubmitDialogOpen] = useState(false);
   const [exitDialogOpen, setExitDialogOpen] = useState(false);
-  const [attemptId] = useState(storageService.generateId());
+  const [attemptId, setAttemptId] = useState(storageService.generateId());
   const [questionOrder, setQuestionOrder] = useState<number[]>([]);
   const [optionOrders, setOptionOrders] = useState<Map<number, number[]>>(new Map());
   const [hintsRevealed, setHintsRevealed] = useState<Set<number>>(new Set());
@@ -67,17 +67,37 @@ export default function ExamPage({ mode }: ExamPageProps) {
     }
     setQuestionBank(bank);
 
-    // Initialize question order (shuffle if enabled and in exam mode)
-    const shouldShuffle = mode === 'exam' && (bank.shuffleQuestions === true);
-    const order = storageService.generateQuestionOrder(bank.questions.length, shouldShuffle);
-    setQuestionOrder(order);
+    // Try to resume existing session
+    const existingSession = storageService.getCurrentSession();
+    if (existingSession && existingSession.questionBankId === bankId && existingSession.mode === mode) {
+      // Resume session
+      setCurrentIndex(existingSession.currentQuestionIndex);
+      setAnswers(existingSession.answers);
+      setFlagged(existingSession.flaggedQuestions);
+      setQuestionOrder(existingSession.questionOrder || []);
+      setOptionOrders(existingSession.optionOrders || new Map());
+      setHintsRevealed(existingSession.hintsUsed || new Set());
+      
+      // Calculate elapsed time
+      const startTime = new Date(existingSession.startTime).getTime();
+      const now = new Date().getTime();
+      setElapsedTime(Math.floor((now - startTime) / 1000));
+      
+      setStartTime(existingSession.startTime);
+      setAttemptId(existingSession.id);
+    } else {
+      // Start new session
+      const shouldShuffle = mode === 'exam' && (bank.shuffleQuestions === true);
+      const order = storageService.generateQuestionOrder(bank.questions.length, shouldShuffle);
+      setQuestionOrder(order);
 
-    // Initialize option orders for each question (shuffle if enabled)
-    if (bank.shuffleOptions) {
+      // Initialize option orders for each question (shuffle if enabled)
       const orders = new Map<number, number[]>();
-      bank.questions.forEach((q, idx) => {
-        orders.set(idx, storageService.generateOptionOrder(q.options.length, true));
-      });
+      if (bank.shuffleOptions) {
+        bank.questions.forEach((q, idx) => {
+          orders.set(idx, storageService.generateOptionOrder(q.options.length, true));
+        });
+      }
       setOptionOrders(orders);
     }
   }, [bankId, setLocation, mode]);
@@ -90,6 +110,36 @@ export default function ExamPage({ mode }: ExamPageProps) {
       return () => clearInterval(timer);
     }
   }, [mode]);
+
+  // Auto-save session every 5 seconds
+  useEffect(() => {
+    if (!questionBank) return;
+    
+    const saveSession = () => {
+      const session: ExamSession = {
+        id: attemptId,
+        questionBankId: questionBank.id,
+        questionBankName: questionBank.name,
+        mode,
+        currentQuestionIndex: currentIndex,
+        answers,
+        flaggedQuestions: flagged,
+        startTime,
+        timeLimit: questionBank.timeLimit,
+        questionOrder,
+        optionOrders,
+        hintsUsed: hintsRevealed,
+      };
+      storageService.saveCurrentSession(session);
+    };
+
+    const interval = setInterval(saveSession, 5000);
+    
+    // Save immediately on changes
+    saveSession();
+    
+    return () => clearInterval(interval);
+  }, [questionBank, attemptId, mode, currentIndex, answers, flagged, startTime, questionOrder, optionOrders, hintsRevealed]);
 
   // Get actual question index (considering shuffling)
   const actualQuestionIndex = questionOrder.length > 0 ? questionOrder[currentIndex] : currentIndex;
@@ -242,6 +292,7 @@ export default function ExamPage({ mode }: ExamPageProps) {
     };
 
     storageService.saveAttempt(attempt);
+    storageService.clearCurrentSession(); // Clear session after submit
     setLocation(`/results/${attemptId}`);
   };
 

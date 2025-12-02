@@ -25,6 +25,11 @@ import {
   FileQuestion,
   AlertCircle,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  History,
+  Code,
+  RotateCcw,
 } from "lucide-react";
 import { storageService } from "@/lib/storage";
 import { loadSampleQuestionBanks } from "@/data/sample-questions";
@@ -39,11 +44,21 @@ export default function Dashboard() {
   const [bankToDelete, setBankToDelete] = useState<QuestionBank | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [showUpload, setShowUpload] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const [showFormatGuide, setShowFormatGuide] = useState(false);
+  const [resumableSession, setResumableSession] = useState<any>(null);
 
   useEffect(() => {
     const initializeData = async () => {
       await loadSampleQuestionBanks();
       refreshData();
+      
+      // Check for resumable session
+      const session = storageService.getCurrentSession();
+      if (session) {
+        setResumableSession(session);
+      }
     };
     initializeData();
   }, []);
@@ -214,34 +229,90 @@ export default function Dashboard() {
 
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
-            <Card className="border-dashed border-2 hover-elevate cursor-pointer" onClick={() => fileInputRef.current?.click()}>
-              <CardContent className="py-8">
-                <div className="flex flex-col items-center justify-center text-center gap-3">
-                  <div className="p-4 bg-muted rounded-full">
-                    <Upload className="h-8 w-8 text-muted-foreground" />
+            {/* Resume Session Banner */}
+            {resumableSession && (
+              <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+                <CardContent className="py-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <RotateCcw className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                      <div>
+                        <p className="font-medium text-blue-900 dark:text-blue-100">
+                          Resume {resumableSession.mode === 'exam' ? 'Exam' : 'Practice'}
+                        </p>
+                        <p className="text-sm text-blue-800 dark:text-blue-200">
+                          {resumableSession.questionBankName} • Question {resumableSession.currentQuestionIndex + 1}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          storageService.clearCurrentSession();
+                          setResumableSession(null);
+                        }}
+                      >
+                        Discard
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => setLocation(`/${resumableSession.mode}/${resumableSession.questionBankId}`)}
+                      >
+                        Resume
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-foreground">Upload Question Bank</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Drop a JSON file here or click to browse
-                    </p>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Upload Section - Collapsible */}
+            <Card>
+              <CardHeader className="cursor-pointer" onClick={() => setShowUpload(!showUpload)}>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Upload className="h-5 w-5" />
+                    <CardTitle className="text-base">Upload Question Bank</CardTitle>
                   </div>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept=".json"
-                    className="hidden"
-                    onChange={handleFileUpload}
-                    data-testid="input-file-upload"
-                  />
+                  {showUpload ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                 </div>
-                {uploadError && (
-                  <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg flex items-start gap-2">
-                    <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
-                    <p className="text-sm text-destructive" data-testid="text-upload-error">{uploadError}</p>
+              </CardHeader>
+              {showUpload && (
+                <CardContent>
+                  <div 
+                    className="border-2 border-dashed rounded-lg p-8 hover:border-primary/50 transition-colors cursor-pointer"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    <div className="flex flex-col items-center justify-center text-center gap-3">
+                      <div className="p-4 bg-muted rounded-full">
+                        <Upload className="h-8 w-8 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground">Click to upload or drag and drop</p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          JSON files only
+                        </p>
+                      </div>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".json"
+                        className="hidden"
+                        onChange={handleFileUpload}
+                        data-testid="input-file-upload"
+                      />
+                    </div>
                   </div>
-                )}
-              </CardContent>
+                  {uploadError && (
+                    <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg flex items-start gap-2">
+                      <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+                      <p className="text-sm text-destructive" data-testid="text-upload-error">{uploadError}</p>
+                    </div>
+                  )}
+                </CardContent>
+              )}
             </Card>
 
             <div>
@@ -343,69 +414,88 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-6">
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Recent Attempts</h2>
-              {recentAttempts.length === 0 ? (
-                <Card>
-                  <CardContent className="py-8 text-center">
-                    <Clock className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
-                    <p className="text-muted-foreground text-sm">No attempts yet</p>
-                    <p className="text-xs text-muted-foreground mt-1">Start a practice test to see your history</p>
-                  </CardContent>
-                </Card>
-              ) : (
-                <div className="space-y-3">
-                  {recentAttempts.map((attempt) => (
-                    <Card
-                      key={attempt.id}
-                      className="hover-elevate cursor-pointer"
-                      onClick={() => setLocation(`/results/${attempt.id}`)}
-                      data-testid={`card-attempt-${attempt.id}`}
-                    >
-                      <CardContent className="py-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <p className="font-medium text-sm truncate flex-1 mr-2">
-                            {attempt.questionBankName}
-                          </p>
-                          <Badge variant={attempt.mode === 'exam' ? 'default' : 'secondary'} className="shrink-0">
-                            {attempt.mode}
-                          </Badge>
-                        </div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className={`font-semibold ${attempt.score >= 70 ? 'text-chart-2' : 'text-destructive'}`}>
-                            {attempt.score}%
-                          </span>
-                          <span className="text-muted-foreground text-xs">
-                            {formatDate(attempt.endTime)}
-                          </span>
-                        </div>
-                        <div className="mt-2 text-xs text-muted-foreground">
-                          {attempt.correctCount}/{attempt.totalQuestions} correct
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                  {recentAttempts.length >= 5 && (
-                    <Button
-                      variant="ghost"
-                      className="w-full"
-                      onClick={() => setLocation('/history')}
-                      data-testid="button-view-all-history"
-                    >
-                      View All History
-                    </Button>
-                  )}
+            {/* Recent Attempts - Collapsible */}
+            <Card>
+              <CardHeader className="cursor-pointer pb-3" onClick={() => setShowHistory(!showHistory)}>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <History className="h-5 w-5" />
+                    <CardTitle className="text-base">Recent Attempts</CardTitle>
+                  </div>
+                  {showHistory ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                 </div>
-              )}
-            </div>
-
-            <Card className="bg-muted/50">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-base">JSON Format Guide</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-3">
-                <p>Upload a JSON file with this structure:</p>
-                <pre className="bg-background p-3 rounded-lg text-xs overflow-x-auto">
+              {showHistory && (
+                <CardContent>
+                  {recentAttempts.length === 0 ? (
+                    <div className="py-8 text-center">
+                      <Clock className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
+                      <p className="text-muted-foreground text-sm">No attempts yet</p>
+                      <p className="text-xs text-muted-foreground mt-1">Start a practice test to see your history</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      {recentAttempts.map((attempt) => (
+                        <Card
+                          key={attempt.id}
+                          className="hover-elevate cursor-pointer"
+                          onClick={() => setLocation(`/results/${attempt.id}`)}
+                          data-testid={`card-attempt-${attempt.id}`}
+                        >
+                          <CardContent className="py-4">
+                            <div className="flex items-center justify-between mb-2">
+                              <p className="font-medium text-sm truncate flex-1 mr-2">
+                                {attempt.questionBankName}
+                              </p>
+                              <Badge variant={attempt.mode === 'exam' ? 'default' : 'secondary'} className="shrink-0">
+                                {attempt.mode}
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between text-sm">
+                              <span className={`font-semibold ${attempt.score >= 70 ? 'text-chart-2' : 'text-destructive'}`}>
+                                {attempt.score}%
+                              </span>
+                              <span className="text-muted-foreground text-xs">
+                                {formatDate(attempt.endTime)}
+                              </span>
+                            </div>
+                            <div className="mt-2 text-xs text-muted-foreground">
+                              {attempt.correctCount}/{attempt.totalQuestions} correct
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                      {recentAttempts.length >= 5 && (
+                        <Button
+                          variant="ghost"
+                          className="w-full"
+                          onClick={() => setLocation('/history')}
+                          data-testid="button-view-all-history"
+                        >
+                          View All History
+                        </Button>
+                      )}
+                    </div>
+                  )}
+                </CardContent>
+              )}
+            </Card>
+
+            {/* JSON Format Guide - Collapsible */}
+            <Card>
+              <CardHeader className="cursor-pointer pb-3" onClick={() => setShowFormatGuide(!showFormatGuide)}>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Code className="h-5 w-5" />
+                    <CardTitle className="text-base">JSON Format Guide</CardTitle>
+                  </div>
+                  {showFormatGuide ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </div>
+              </CardHeader>
+              {showFormatGuide && (
+                <CardContent className="text-sm text-muted-foreground space-y-3">
+                  <p>Upload a JSON file with this structure:</p>
+                  <pre className="bg-background p-3 rounded-lg text-xs overflow-x-auto">
 {`[
   {
     "question": "Your question?",
@@ -415,10 +505,22 @@ export default function Dashboard() {
   }
 ]`}
                 </pre>
-                <p className="text-xs">
-                  For multi-select, include multiple answers separated by commas in correct_answer.
-                </p>
-              </CardContent>
+                  <p className="text-xs">
+                    For multi-select, include multiple answers separated by commas in correct_answer.
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full mt-2"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open('/bank/README.md', '_blank');
+                    }}
+                  >
+                    View Full Documentation
+                  </Button>
+                </CardContent>
+              )}
             </Card>
           </div>
         </div>
