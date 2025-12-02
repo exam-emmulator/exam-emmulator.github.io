@@ -95,7 +95,10 @@ export default function ExamPage({ mode }: ExamPageProps) {
       const orders = new Map<number, number[]>();
       if (bank.shuffleOptions) {
         bank.questions.forEach((q, idx) => {
-          orders.set(idx, storageService.generateOptionOrder(q.options.length, true));
+          const optionsLength = Array.isArray(q.options) 
+            ? q.options.length 
+            : Object.keys(q.options).length;
+          orders.set(idx, storageService.generateOptionOrder(optionsLength, true));
         });
       }
       setOptionOrders(orders);
@@ -147,19 +150,33 @@ export default function ExamPage({ mode }: ExamPageProps) {
   const totalQuestions = questionBank?.questions.length || 0;
   const isMultiSelect = currentQuestion ? storageService.isMultiSelect(currentQuestion) : false;
 
+  // Get options array (handle both array and object format)
+  const getOptionsArray = useCallback(() => {
+    if (!currentQuestion) return [];
+    return Array.isArray(currentQuestion.options)
+      ? currentQuestion.options
+      : Object.values(currentQuestion.options);
+  }, [currentQuestion]);
+
   // Get shuffled options if enabled
   const getShuffledOptions = useCallback(() => {
-    if (!currentQuestion) return [];
+    const options = getOptionsArray();
+    if (options.length === 0) return [];
+    
     const optionOrder = optionOrders.get(actualQuestionIndex);
-    if (!optionOrder) return currentQuestion.options;
-    return optionOrder.map(idx => currentQuestion.options[idx]);
-  }, [currentQuestion, optionOrders, actualQuestionIndex]);
+    if (!optionOrder) return options;
+    return optionOrder.map(idx => options[idx]);
+  }, [getOptionsArray, optionOrders, actualQuestionIndex]);
 
   const shuffledOptions = getShuffledOptions();
 
   const parseCorrectAnswers = useCallback((correctAnswer: string | string[]): string[] => {
-    return storageService.getCorrectAnswersDisplay({ correct_answer: correctAnswer } as any);
-  }, []);
+    if (!currentQuestion) return [];
+    return storageService.getCorrectAnswersDisplay({ 
+      correct_answer: correctAnswer,
+      options: currentQuestion.options 
+    } as any);
+  }, [currentQuestion]);
 
   const checkAnswer = useCallback((questionIndex: number, selectedAnswers: string[]): boolean => {
     if (!questionBank) return false;
@@ -309,14 +326,23 @@ export default function ExamPage({ mode }: ExamPageProps) {
   const getOptionClass = (option: string) => {
     if (!showFeedback || !currentQuestion) return "";
     
+    // Get correct answers and normalize them
     const correctAnswers = parseCorrectAnswers(currentQuestion.correct_answer);
-    const selectedAnswers = answers.get(currentIndex) || [];
-    const isSelected = selectedAnswers.includes(option);
-    const isCorrect = correctAnswers.includes(option);
+    const selectedAnswers = answers.get(actualQuestionIndex) || [];
+    
+    // Normalize for comparison (lowercase, trim)
+    const normalizedOption = option.trim().toLowerCase();
+    const normalizedCorrect = correctAnswers.map(a => a.trim().toLowerCase());
+    const normalizedSelected = selectedAnswers.map(a => a.trim().toLowerCase());
+    
+    const isSelected = normalizedSelected.includes(normalizedOption);
+    const isCorrect = normalizedCorrect.includes(normalizedOption);
 
+    // Show green for correct answers
     if (isCorrect) {
       return "border-chart-2 bg-chart-2/10";
     }
+    // Show red only for selected wrong answers
     if (isSelected && !isCorrect) {
       return "border-destructive bg-destructive/10";
     }

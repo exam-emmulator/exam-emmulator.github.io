@@ -6,8 +6,9 @@ This folder contains JSON files with exam question banks that are automatically 
 
 ### Basic Format
 
-Each JSON file should follow this structure:
+Each JSON file should follow this structure. Two formats are supported:
 
+#### Format 1: Array-based (Legacy)
 ```json
 {
   "id": "unique-bank-id",
@@ -31,6 +32,37 @@ Each JSON file should follow this structure:
   ]
 }
 ```
+
+#### Format 2: Object-based (Optimized - Recommended)
+```json
+{
+  "id": "unique-bank-id",
+  "name": "Display Name for the Question Bank",
+  "description": "Optional description of the question bank",
+  "dateAdded": "2025-12-01T10:59:45Z",
+  "questions": [
+    {
+      "question": "Your question text here?",
+      "options": {
+        "A": "Option A text",
+        "B": "Option B text",
+        "C": "Option C text",
+        "D": "Option D text"
+      },
+      "correct_answer": "A",
+      "explanation": "Optional explanation of the correct answer",
+      "references": ["Optional array of reference links"],
+      "hint": "Optional hint for the question"
+    }
+  ]
+}
+```
+
+**Benefits of Object-based format:**
+- Reduces file size by ~4-5%
+- Easier to reference answers
+- More compact for multi-select questions
+- Automatically converted by `npm run optimize-banks`
 
 ### Advanced Format with Sections and Weights
 

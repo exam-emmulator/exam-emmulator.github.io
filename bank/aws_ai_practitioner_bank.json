@@ -5,1158 +5,1158 @@
   "dateAdded": "2025-12-01T10:59:45Z",
   "questions": [
     {
-      "question": "A company makes forecasts each quarter to decide how to optimize operations to meet expected demand. The company uses ML models to make these forecasts.\nAn AI practitioner is writing a report about the trained ML models to provide transparency and explainability to company stakeholders.\nWhat should the AI practitioner include in the report to meet the transparency and explainability requirements?",
-      "options": [
-        "Code for model training",
-        "Partial dependence plots (PDPs)",
-        "Sample data for training",
-        "Model convergence tables"
-      ],
-      "correct_answer": "Partial dependence plots (PDPs)",
+      "question": "A company makes forecasts each quarter to decide how to optimize operations to meet expected demand. The company uses ML models to make these forecasts. An AI practitioner is writing a report about the trained ML models to provide transparency and explainability to company stakeholders. What should the AI practitioner include in the report to meet the transparency and explainability requirements?",
+      "options": {
+        "A": "Code for model training",
+        "B": "Partial dependence plots (PDPs)",
+        "C": "Sample data for training",
+        "D": "Model convergence tables"
+      },
+      "correct_answer": "B",
       "explanation": "Partial dependence plots (PDPs) illustrate the marginal effect of one or two features on the predicted outcome of a machine learning model, providing transparency by showing how predictions change as feature values vary, which helps stakeholders understand model behavior."
     },
     {
-      "question": "A law firm wants to build an AI application by using large language models (LLMs). The application will read a transcript of a recorded conversation and provide a summary of the conversation.\nWhich solution meets these requirements?",
-      "options": [
-        "Build an automatic named entity recognition system.",
-        "Create a recommendation engine.",
-        "Develop a summarization chatbot.",
-        "Develop a multi-language translation system."
-      ],
-      "correct_answer": "Develop a summarization chatbot.",
+      "question": "A law firm wants to build an AI application by using large language models (LLMs). The application will read a transcript of a recorded conversation and provide a summary of the conversation. Which solution meets these requirements?",
+      "options": {
+        "A": "Build an automatic named entity recognition system.",
+        "B": "Create a recommendation engine.",
+        "C": "Develop a summarization chatbot.",
+        "D": "Develop a multi-language translation system."
+      },
+      "correct_answer": "C",
       "explanation": "A summarization chatbot leverages LLMs to condense lengthy text, such as conversation transcripts, into concise summaries by identifying key points and maintaining context."
     },
     {
-      "question": "A company wants to classify customer feedback into three categories: positive, negative, or neutral. The company needs an ML algorithm that can predict the category of a new piece of feedback.\nWhich ML algorithm meets these requirements?",
-      "options": [
-        "Decision trees",
-        "Linear regression",
-        "Logistic regression",
-        "Neural networks"
-      ],
-      "correct_answer": "Logistic regression",
+      "question": "A company wants to classify customer feedback into three categories: positive, negative, or neutral. The company needs an ML algorithm that can predict the category of a new piece of feedback. Which ML algorithm meets these requirements?",
+      "options": {
+        "A": "Decision trees",
+        "B": "Linear regression",
+        "C": "Logistic regression",
+        "D": "Neural networks"
+      },
+      "correct_answer": "C",
       "explanation": "Logistic regression is suitable for multiclass classification tasks like sentiment analysis, as it models the probability of each class using a logistic function, making it effective for predicting categories such as positive, negative, or neutral."
     },
     {
-      "question": "A company is using a pre-trained large language model (LLM) to build a chatbot for customer service. The company wants the chatbot to be able to answer questions about its products, even if the information is not in the LLM's training data.\nWhich solution will meet these requirements?",
-      "options": [
-        "Adjust the prompt.",
-        "Choose an LLM of a different size.",
-        "Increase the temperature.",
-        "Use a knowledge base."
-      ],
-      "correct_answer": "Use a knowledge base.",
+      "question": "A company is using a pre-trained large language model (LLM) to build a chatbot for customer service. The company wants the chatbot to be able to answer questions about its products, even if the information is not in the LLM's training data. Which solution will meet these requirements?",
+      "options": {
+        "A": "Adjust the prompt.",
+        "B": "Choose an LLM of a different size.",
+        "C": "Increase the temperature.",
+        "D": "Use a knowledge base."
+      },
+      "correct_answer": "D",
       "explanation": "Integrating a knowledge base allows the LLM to retrieve and incorporate external, up-to-date information not present in its training data, enabling accurate responses to product-specific queries."
     },
     {
-      "question": "A company uses Amazon SageMaker for its ML pipeline in a production environment. The company has a large number of models that are used infrequently. The company wants to minimize the cost of its ML inference.\nWhich SageMaker inference option meets these requirements?",
-      "options": [
-        "Real-time inference",
-        "Serverless inference",
-        "Asynchronous inference",
-        "Batch transform"
-      ],
-      "correct_answer": "Serverless inference",
+      "question": "A company uses Amazon SageMaker for its ML pipeline in a production environment. The company has a large number of models that are used infrequently. The company wants to minimize the cost of its ML inference. Which SageMaker inference option meets these requirements?",
+      "options": {
+        "A": "Real-time inference",
+        "B": "Serverless inference",
+        "C": "Asynchronous inference",
+        "D": "Batch transform"
+      },
+      "correct_answer": "B",
       "explanation": "Serverless inference automatically provisions and scales compute resources on demand, eliminating the need for managing infrastructure and reducing costs for infrequently used models by charging only for actual usage."
     },
     {
-      "question": "A company is using a pre-trained model for image classification. The model is not performing well on the company's specific images. The company wants to improve the performance of the model without training a new model from scratch.\nWhich ML strategy meets these requirements?",
-      "options": [
-        "Increase the number of epochs.",
-        "Use transfer learning.",
-        "Decrease the number of epochs.",
-        "Use unsupervised learning."
-      ],
-      "correct_answer": "Use transfer learning.",
+      "question": "A company is using a pre-trained model for image classification. The model is not performing well on the company's specific images. The company wants to improve the performance of the model without training a new model from scratch. Which ML strategy meets these requirements?",
+      "options": {
+        "A": "Increase the number of epochs.",
+        "B": "Use transfer learning.",
+        "C": "Decrease the number of epochs.",
+        "D": "Use unsupervised learning."
+      },
+      "correct_answer": "B",
       "explanation": "Transfer learning fine-tunes a pre-trained model on a smaller, task-specific dataset, leveraging learned features to improve performance without retraining from scratch."
     },
     {
-      "question": "A company is building a solution to generate images of clothing for an e-commerce website. The solution must be able to generate a wide variety of clothing styles and colors.\nWhich solution will meet these requirements?",
-      "options": [
-        "Use a generative adversarial network (GAN).",
-        "Use a convolutional neural network (CNN).",
-        "Use a recurrent neural network (RNN).",
-        "Use a support vector machine (SVM)."
-      ],
-      "correct_answer": "Use a generative adversarial network (GAN).",
+      "question": "A company is building a solution to generate images of clothing for an e-commerce website. The solution must be able to generate a wide variety of clothing styles and colors. Which solution will meet these requirements?",
+      "options": {
+        "A": "Use a generative adversarial network (GAN).",
+        "B": "Use a convolutional neural network (CNN).",
+        "C": "Use a recurrent neural network (RNN).",
+        "D": "Use a support vector machine (SVM)."
+      },
+      "correct_answer": "A",
       "explanation": "GANs consist of a generator that creates new images and a discriminator that evaluates them, enabling the generation of diverse and realistic images like various clothing styles and colors."
     },
     {
-      "question": "A company wants to create a chatbot by using a foundation model (FM) on Amazon Bedrock. The company wants to ensure that the chatbot's responses are consistent with its brand voice.\nWhich solution will meet these requirements?",
-      "options": [
-        "Use a custom vocabulary.",
-        "Use a custom model.",
-        "Use a custom prompt.",
-        "Use a custom knowledge base."
-      ],
-      "correct_answer": "Use a custom prompt.",
+      "question": "A company wants to create a chatbot by using a foundation model (FM) on Amazon Bedrock. The company wants to ensure that the chatbot's responses are consistent with its brand voice. Which solution will meet these requirements?",
+      "options": {
+        "A": "Use a custom vocabulary.",
+        "B": "Use a custom model.",
+        "C": "Use a custom prompt.",
+        "D": "Use a custom knowledge base."
+      },
+      "correct_answer": "C",
       "explanation": "Custom prompts provide specific instructions, examples, or guidelines to the FM, shaping its responses to align with the desired brand voice and tone."
     },
     {
-      "question": "A company wants to use language models to create an application that can translate between multiple languages in real time.\nWhich solution will meet these requirements?",
-      "options": [
-        "Use Amazon Translate.",
-        "Use Amazon Polly.",
-        "Use Amazon Transcribe.",
-        "Use Amazon Lex."
-      ],
-      "correct_answer": "Use Amazon Translate.",
+      "question": "A company wants to use language models to create an application that can translate between multiple languages in real time. Which solution will meet these requirements?",
+      "options": {
+        "A": "Use Amazon Translate.",
+        "B": "Use Amazon Polly.",
+        "C": "Use Amazon Transcribe.",
+        "D": "Use Amazon Lex."
+      },
+      "correct_answer": "A",
       "explanation": "Amazon Translate uses neural machine translation to provide fast, high-quality, real-time translation between multiple languages."
     },
     {
-      "question": "A company has built an image classification model to predict whether a customer will churn. The company wants to understand which factors are most important in the model's predictions.\nWhich evaluation metric should the company use to measure the model's performance?",
-      "options": [
-        "SHAP (SHapley Additive exPlanations)",
-        "Accuracy",
-        "Root mean squared error (RMSE)",
-        "Learning rate"
-      ],
-      "correct_answer": "SHAP (SHapley Additive exPlanations)",
+      "question": "A company has built an image classification model to predict whether a customer will churn. The company wants to understand which factors are most important in the model's predictions. Which evaluation metric should the company use to measure the model's performance?",
+      "options": {
+        "A": "SHAP (SHapley Additive exPlanations)",
+        "B": "Accuracy",
+        "C": "Root mean squared error (RMSE)",
+        "D": "Learning rate"
+      },
+      "correct_answer": "A",
       "explanation": "SHAP calculates Shapley values to explain the contribution of each feature to individual predictions, providing insights into feature importance for model interpretability."
     },
     {
-      "question": "An e-commerce company wants to improve its product recommendations by using machine learning. The company wants to build a model that can predict which products a customer is likely to buy, based on their past purchase history.\nWhich AWS service should the company use to build this model?",
-      "options": [
-        "Amazon Personalize",
-        "Amazon Kendra",
-        "Amazon SageMaker",
-        "Amazon Lex"
-      ],
-      "correct_answer": "Amazon Personalize",
+      "question": "An e-commerce company wants to improve its product recommendations by using machine learning. The company wants to build a model that can predict which products a customer is likely to buy, based on their past purchase history. Which AWS service should the company use to build this model?",
+      "options": {
+        "A": "Amazon Personalize",
+        "B": "Amazon Kendra",
+        "C": "Amazon SageMaker",
+        "D": "Amazon Lex"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon Personalize uses machine learning to analyze historical data and provide personalized product recommendations based on user behavior and preferences."
     },
     {
-      "question": "A company wants to build a chatbot that can answer customer questions about its products. The company has a large number of documents that contain information about its products. The company wants to use a generative AI model to answer customer questions, but it wants to ensure that the model's answers are based on the information in its documents.\nWhich technique should the company use?",
-      "options": [
-        "Fine-tuning",
-        "Retrieval augmented generation (RAG)",
-        "In-context learning",
-        "Prompt engineering"
-      ],
-      "correct_answer": "Retrieval augmented generation (RAG)",
+      "question": "A company wants to build a chatbot that can answer customer questions about its products. The company has a large number of documents that contain information about its products. The company wants to use a generative AI model to answer customer questions, but it wants to ensure that the model's answers are based on the information in its documents. Which technique should the company use?",
+      "options": {
+        "A": "Fine-tuning",
+        "B": "Retrieval augmented generation (RAG)",
+        "C": "In-context learning",
+        "D": "Prompt engineering"
+      },
+      "correct_answer": "B",
       "explanation": "RAG retrieves relevant information from external documents and augments the LLM's prompt, ensuring responses are grounded in the provided knowledge base."
     },
     {
-      "question": "A company is building a machine learning model to predict whether a loan application should be approved. The company is concerned that the model may be biased against certain groups of people. The company wants to use a tool to help it to identify and mitigate bias in its model.\nWhich AWS service should the company use?",
-      "options": [
-        "Amazon SageMaker Clarify",
-        "Amazon Macie",
-        "Amazon GuardDuty",
-        "AWS Shield"
-      ],
-      "correct_answer": "Amazon SageMaker Clarify",
+      "question": "A company is building a machine learning model to predict whether a loan application should be approved. The company is concerned that the model may be biased against certain groups of people. The company wants to use a tool to help it to identify and mitigate bias in its model. Which AWS service should the company use?",
+      "options": {
+        "A": "Amazon SageMaker Clarify",
+        "B": "Amazon Macie",
+        "C": "Amazon GuardDuty",
+        "D": "AWS Shield"
+      },
+      "correct_answer": "A",
       "explanation": "SageMaker Clarify detects and mitigates bias in ML models and datasets, providing tools for fairness analysis and explainability."
     },
     {
-      "question": "A company wants to use a generative AI model to create marketing copy for its website. The company wants to ensure that the marketing copy is creative and engaging, but it also wants to ensure that it is not offensive or inappropriate.\nWhich of the following is a good way to control the output of a generative AI model?",
-      "options": [
-        "Use a high temperature setting.",
-        "Use a low temperature setting.",
-        "Use a large number of tokens.",
-        "Use a small number of tokens."
-      ],
-      "correct_answer": "Use a low temperature setting.",
+      "question": "A company wants to use a generative AI model to create marketing copy for its website. The company wants to ensure that the marketing copy is creative and engaging, but it also wants to ensure that it is not offensive or inappropriate. Which of the following is a good way to control the output of a generative AI model?",
+      "options": {
+        "A": "Use a high temperature setting.",
+        "B": "Use a low temperature setting.",
+        "C": "Use a large number of tokens.",
+        "D": "Use a small number of tokens."
+      },
+      "correct_answer": "B",
       "explanation": "A low temperature setting reduces randomness in the model's output, making responses more deterministic and less likely to produce inappropriate or offensive content."
     },
     {
-      "question": "A company is using a generative AI model to create images for its website. The company is concerned that the model may generate images that are not realistic or that are of low quality. The company wants to use a tool to help it to evaluate the quality of the images generated by its model.\nWhich of the following is a good way to evaluate the quality of images generated by a generative AI model?",
-      "options": [
-        "Use a human-in-the-loop workflow.",
-        "Use a high temperature setting.",
-        "Use a low temperature setting.",
-        "Use a large number of tokens."
-      ],
-      "correct_answer": "Use a human-in-the-loop workflow.",
+      "question": "A company is using a generative AI model to create images for its website. The company is concerned that the model may generate images that are not realistic or that are of low quality. The company wants to use a tool to help it to evaluate the quality of the images generated by its model. Which of the following is a good way to evaluate the quality of images generated by a generative AI model?",
+      "options": {
+        "A": "Use a human-in-the-loop workflow.",
+        "B": "Use a high temperature setting.",
+        "C": "Use a low temperature setting.",
+        "D": "Use a large number of tokens."
+      },
+      "correct_answer": "A",
       "explanation": "Human-in-the-loop workflows incorporate human feedback and review to assess and improve the quality, realism, and appropriateness of generated images."
     },
     {
       "question": "Which AWS services can be used to implement text-to-speech functionality? (Select TWO)",
-      "options": [
-        "Amazon Polly",
-        "Amazon Lex",
-        "Amazon Transcribe",
-        "Amazon Translate"
-      ],
+      "options": {
+        "A": "Amazon Polly",
+        "B": "Amazon Lex",
+        "C": "Amazon Transcribe",
+        "D": "Amazon Translate"
+      },
       "correct_answer": "Amazon Polly, Amazon Lex",
       "explanation": "Amazon Polly provides text-to-speech synthesis, and Amazon Lex includes built-in text-to-speech capabilities for conversational interfaces."
     },
     {
       "question": "What are the key components of a Generative Adversarial Network (GAN)? (Select TWO)",
-      "options": [
-        "Generator",
-        "Discriminator",
-        "Encoder",
-        "Decoder"
-      ],
+      "options": {
+        "A": "Generator",
+        "B": "Discriminator",
+        "C": "Encoder",
+        "D": "Decoder"
+      },
       "correct_answer": "Generator, Discriminator",
       "explanation": "GANs consist of a generator that creates synthetic data and a discriminator that evaluates its authenticity, training adversarially to improve output quality."
     },
     {
       "question": "Which inference options are available in Amazon SageMaker? (Select THREE)",
-      "options": [
-        "Real-time inference",
-        "Batch transform",
-        "Asynchronous inference",
-        "Serverless inference"
-      ],
+      "options": {
+        "A": "Real-time inference",
+        "B": "Batch transform",
+        "C": "Asynchronous inference",
+        "D": "Serverless inference"
+      },
       "correct_answer": "Real-time inference, Batch transform, Asynchronous inference, Serverless inference",
       "explanation": "SageMaker supports real-time for immediate responses, batch for large datasets, asynchronous for delayed processing, and serverless for on-demand scaling."
     },
     {
       "question": "Which methods can be used to customize foundation models in Amazon Bedrock? (Select THREE)",
-      "options": [
-        "Fine-tuning",
-        "Retrieval Augmented Generation (RAG)",
-        "Prompt engineering",
-        "Model distillation"
-      ],
+      "options": {
+        "A": "Fine-tuning",
+        "B": "Retrieval Augmented Generation (RAG)",
+        "C": "Prompt engineering",
+        "D": "Model distillation"
+      },
       "correct_answer": "Fine-tuning, Retrieval Augmented Generation (RAG), Prompt engineering",
       "explanation": "Fine-tuning adjusts model weights on custom data, RAG augments prompts with retrieved knowledge, and prompt engineering crafts inputs for better responses."
     },
     {
       "question": "Which bias metrics can Amazon SageMaker Clarify compute? (Select TWO)",
-      "options": [
-        "Demographic parity",
-        "Equal opportunity",
-        "Accuracy",
-        "Precision"
-      ],
+      "options": {
+        "A": "Demographic parity",
+        "B": "Equal opportunity",
+        "C": "Accuracy",
+        "D": "Precision"
+      },
       "correct_answer": "Demographic parity, Equal opportunity",
       "explanation": "SageMaker Clarify calculates metrics like demographic parity (fair representation) and equal opportunity (true positive rates across groups) to detect bias."
     },
     {
       "question": "What is the primary role of Amazon Forecast?",
-      "options": [
-        "To provide real-time recommendations to customers.",
-        "To analyze customer reviews for sentiment.",
-        "To deliver highly accurate forecasts using machine learning.",
-        "To translate text between different languages."
-      ],
-      "correct_answer": "To deliver highly accurate forecasts using machine learning.",
+      "options": {
+        "A": "To provide real-time recommendations to customers.",
+        "B": "To analyze customer reviews for sentiment.",
+        "C": "To deliver highly accurate forecasts using machine learning.",
+        "D": "To translate text between different languages."
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts based on the same technology used at Amazon.com."
     },
     {
       "question": "A company wants to identify key entities like product names, dates, and locations from customer support tickets. Which AWS service can accomplish this task?",
-      "options": [
-        "Amazon Transcribe",
-        "Amazon Translate",
-        "Amazon Comprehend",
-        "Amazon Rekognition"
-      ],
-      "correct_answer": "Amazon Comprehend",
+      "options": {
+        "A": "Amazon Transcribe",
+        "B": "Amazon Translate",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Rekognition"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Comprehend is a natural-language processing (NLP) service that uses machine learning to find insights and relationships in text, including named entity recognition."
     },
     {
       "question": "Which of the following best describes feature engineering in machine learning?",
-      "options": [
-        "The process of selecting the best machine learning model for a given task.",
-        "The process of creating new features or transforming existing ones to improve model performance.",
-        "The process of evaluating the performance of a machine learning model.",
-        "The process of deploying a machine learning model to production."
-      ],
-      "correct_answer": "The process of creating new features or transforming existing ones to improve model performance.",
+      "options": {
+        "A": "The process of selecting the best machine learning model for a given task.",
+        "B": "The process of creating new features or transforming existing ones to improve model performance.",
+        "C": "The process of evaluating the performance of a machine learning model.",
+        "D": "The process of deploying a machine learning model to production."
+      },
+      "correct_answer": "B",
       "explanation": "Feature engineering is the process of using domain knowledge to extract features from raw data to make the machine learning algorithm work better."
     },
     {
       "question": "What is the primary concern of the 'Operational Excellence' pillar of the AWS Well-Architected Framework in the context of ML workloads?",
-      "options": [
-        "Maximizing the performance of machine learning models.",
-        "Ensuring the reliability of machine learning applications.",
-        "Running and monitoring systems to deliver business value and continuously improving processes and procedures.",
-        "Minimizing the cost of machine learning resources."
-      ],
-      "correct_answer": "Running and monitoring systems to deliver business value and continuously improving processes and procedures.",
+      "options": {
+        "A": "Maximizing the performance of machine learning models.",
+        "B": "Ensuring the reliability of machine learning applications.",
+        "C": "Running and monitoring systems to deliver business value and continuously improving processes and procedures.",
+        "D": "Minimizing the cost of machine learning resources."
+      },
+      "correct_answer": "C",
       "explanation": "Operational Excellence focuses on running and monitoring systems to deliver business value and continuously improving supporting processes and procedures, which is critical for ML workloads in production."
     },
     {
       "question": "A company wants to build a machine learning model to detect anomalies in sensor data from industrial equipment. Which type of machine learning would be most suitable for this task?",
-      "options": [
-        "Supervised learning",
-        "Unsupervised learning",
-        "Reinforcement learning",
-        "Semi-supervised learning"
-      ],
-      "correct_answer": "Unsupervised learning",
+      "options": {
+        "A": "Supervised learning",
+        "B": "Unsupervised learning",
+        "C": "Reinforcement learning",
+        "D": "Semi-supervised learning"
+      },
+      "correct_answer": "B",
       "explanation": "Unsupervised learning, particularly clustering or anomaly detection algorithms, is suitable for identifying unusual patterns in data without prior labels, which is common in anomaly detection scenarios."
     },
     {
       "question": "Which of the following is a common technique for mitigating overfitting in machine learning models?",
-      "options": [
-        "Increasing the complexity of the model.",
-        "Decreasing the amount of training data.",
-        "Using regularization techniques.",
-        "Increasing the number of features."
-      ],
-      "correct_answer": "Using regularization techniques.",
+      "options": {
+        "A": "Increasing the complexity of the model.",
+        "B": "Decreasing the amount of training data.",
+        "C": "Using regularization techniques.",
+        "D": "Increasing the number of features."
+      },
+      "correct_answer": "C",
       "explanation": "Regularization techniques (e.g., L1, L2) add a penalty to the loss function for large coefficients, discouraging complex models and thus reducing overfitting."
     },
     {
       "question": "What is the purpose of Amazon Transcribe?",
-      "options": [
-        "To convert text to speech.",
-        "To translate speech between different languages.",
-        "To convert speech to text.",
-        "To identify key phrases and entities in text."
-      ],
-      "correct_answer": "To convert speech to text.",
+      "options": {
+        "A": "To convert text to speech.",
+        "B": "To translate speech between different languages.",
+        "C": "To convert speech to text.",
+        "D": "To identify key phrases and entities in text."
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech-to-text capability to their applications."
     },
     {
       "question": "In the context of machine learning, what is a 'learning rate'?",
-      "options": [
-        "The rate at which the model makes predictions.",
-        "The size of the dataset used for training.",
-        "A hyperparameter that controls how much the model's weights are adjusted with respect to the loss gradient.",
-        "The speed at which the model converges during training."
-      ],
-      "correct_answer": "A hyperparameter that controls how much the model's weights are adjusted with respect to the loss gradient.",
+      "options": {
+        "A": "The rate at which the model makes predictions.",
+        "B": "The size of the dataset used for training.",
+        "C": "A hyperparameter that controls how much the model's weights are adjusted with respect to the loss gradient.",
+        "D": "The speed at which the model converges during training."
+      },
+      "correct_answer": "C",
       "explanation": "The learning rate is a crucial hyperparameter that determines the step size at each iteration while moving toward a minimum of the loss function. A learning rate that is too high can cause the model to overshoot, while a learning rate that is too low can lead to slow convergence."
     },
     {
       "question": "Which AWS service can be used to analyze video streams in real-time to detect objects, people, and activities?",
-      "options": [
-        "Amazon Textract",
-        "Amazon Rekognition",
-        "Amazon Comprehend Video",
-        "Amazon Transcribe"
-      ],
-      "correct_answer": "Amazon Rekognition",
+      "options": {
+        "A": "Amazon Textract",
+        "B": "Amazon Rekognition",
+        "C": "Amazon Comprehend Video",
+        "D": "Amazon Transcribe"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Rekognition is a deep learning service that makes it easy to add image and video analysis to your applications. It can identify objects, people, text, scenes, and activities, as well as detect inappropriate content."
     },
     {
       "question": "What is the primary goal of the 'Security' pillar of the AWS Well-Architected Framework for ML workloads?",
-      "options": [
-        "To protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.",
-        "To effectively use computing resources and to maintain efficiency as demand changes.",
-        "To build highly resilient ML systems that recover quickly from failures.",
-        "To reduce the cost of ML operations."
-      ],
-      "correct_answer": "To protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.",
+      "options": {
+        "A": "To protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.",
+        "B": "To effectively use computing resources and to maintain efficiency as demand changes.",
+        "C": "To build highly resilient ML systems that recover quickly from failures.",
+        "D": "To reduce the cost of ML operations."
+      },
+      "correct_answer": "A",
       "explanation": "The Security pillar focuses on protecting information and systems, including data, models, and infrastructure, from unauthorized access and malicious activity."
     },
     {
       "question": "Which of the following best describes the concept of 'bias' in a machine learning model?",
-      "options": [
-        "The difference between the predicted value and the actual value.",
-        "A systematic error in a model that leads to unfair or inaccurate predictions for certain groups.",
-        "The complexity of the model architecture.",
-        "The speed at which the model makes predictions."
-      ],
-      "correct_answer": "A systematic error in a model that leads to unfair or inaccurate predictions for certain groups.",
+      "options": {
+        "A": "The difference between the predicted value and the actual value.",
+        "B": "A systematic error in a model that leads to unfair or inaccurate predictions for certain groups.",
+        "C": "The complexity of the model architecture.",
+        "D": "The speed at which the model makes predictions."
+      },
+      "correct_answer": "B",
       "explanation": "Bias in machine learning refers to systematic and repeatable errors in a computer system that create unfair outcomes, such as favoring one group over others."
     },
     {
       "question": "What is the role of Amazon Textract?",
-      "options": [
-        "To convert speech to text.",
-        "To translate text between different languages.",
-        "To extract text and data from scanned documents.",
-        "To analyze sentiment in text."
-      ],
-      "correct_answer": "To extract text and data from scanned documents.",
+      "options": {
+        "A": "To convert speech to text.",
+        "B": "To translate text between different languages.",
+        "C": "To extract text and data from scanned documents.",
+        "D": "To analyze sentiment in text."
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Textract is a machine learning service that automatically extracts text, handwriting, and data from scanned documents that go beyond simple optical character recognition (OCR) to identify fields in forms and information stored in tables."
     },
     {
       "question": "Which of the following is a key consideration when implementing responsible AI practices?",
-      "options": [
-        "Maximizing model accuracy at all costs.",
-        "Prioritizing model speed over all other factors.",
-        "Ensuring fairness, transparency, and accountability in AI systems.",
-        "Minimizing the computational resources used by AI models."
-      ],
-      "correct_answer": "Ensuring fairness, transparency, and accountability in AI systems.",
+      "options": {
+        "A": "Maximizing model accuracy at all costs.",
+        "B": "Prioritizing model speed over all other factors.",
+        "C": "Ensuring fairness, transparency, and accountability in AI systems.",
+        "D": "Minimizing the computational resources used by AI models."
+      },
+      "correct_answer": "C",
       "explanation": "Responsible AI emphasizes ethical considerations such as fairness, transparency, and accountability to ensure AI systems are developed and used in a way that benefits society."
     },
     {
       "question": "What is the purpose of 'prompt tuning' in generative AI?",
-      "options": [
-        "To pre-train a large language model from scratch.",
-        "To adjust the parameters of a pre-trained model to optimize for specific downstream tasks with minimal data.",
-        "To create new training data for a generative AI model.",
-        "To evaluate the performance of a generative AI model."
-      ],
-      "correct_answer": "To adjust the parameters of a pre-trained model to optimize for specific downstream tasks with minimal data.",
+      "options": {
+        "A": "To pre-train a large language model from scratch.",
+        "B": "To adjust the parameters of a pre-trained model to optimize for specific downstream tasks with minimal data.",
+        "C": "To create new training data for a generative AI model.",
+        "D": "To evaluate the performance of a generative AI model."
+      },
+      "correct_answer": "B",
       "explanation": "Prompt tuning is a parameter-efficient fine-tuning technique that adds a small, learnable prompt to the input of a pre-trained large language model, allowing the model to adapt to new tasks without updating all model weights."
     },
     {
       "question": "Which AWS service is specifically designed for building, training, and deploying large-scale machine learning models with high performance?",
-      "options": [
-        "Amazon Rekognition",
-        "Amazon Comprehend",
-        "Amazon SageMaker",
-        "Amazon Polly"
-      ],
-      "correct_answer": "Amazon SageMaker",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "Amazon Comprehend",
+        "C": "Amazon SageMaker",
+        "D": "Amazon Polly"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon SageMaker is a fully managed service that provides every developer and data scientist with the ability to build, train, and deploy machine learning (ML) models quickly."
     },
     {
       "question": "Which AWS service can detect fraudulent online activities and financial transactions?",
-      "options": [
-        "Amazon Fraud Detector",
-        "Amazon Detective",
-        "Amazon Macie",
-        "Amazon GuardDuty"
-      ],
-      "correct_answer": "Amazon Fraud Detector",
+      "options": {
+        "A": "Amazon Fraud Detector",
+        "B": "Amazon Detective",
+        "C": "Amazon Macie",
+        "D": "Amazon GuardDuty"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon Fraud Detector is a fully managed service that makes it easy to identify potentially fraudulent online activities, such as online payment fraud and the creation of fake accounts."
     },
     {
       "question": "A development team wants to use generative AI to assist with writing code. Which AWS service would be most appropriate for this task?",
-      "options": [
-        "Amazon CodeGuru",
-        "Amazon CodeWhisperer",
-        "Amazon Comprehend",
-        "Amazon Lex"
-      ],
-      "correct_answer": "Amazon CodeWhisperer",
+      "options": {
+        "A": "Amazon CodeGuru",
+        "B": "Amazon CodeWhisperer",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Lex"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon CodeWhisperer is an AI-powered coding companion that generates code suggestions in real time, helping developers write code faster and more efficiently."
     },
     {
       "question": "What is 'model drift' in machine learning?",
-      "options": [
-        "When a model's predictions become more accurate over time.",
-        "When a model's performance degrades over time due to changes in the data distribution.",
-        "When a model is retrained with new data.",
-        "When a model is deployed to a different environment."
-      ],
-      "correct_answer": "When a model's performance degrades over time due to changes in the data distribution.",
+      "options": {
+        "A": "When a model's predictions become more accurate over time.",
+        "B": "When a model's performance degrades over time due to changes in the data distribution.",
+        "C": "When a model is retrained with new data.",
+        "D": "When a model is deployed to a different environment."
+      },
+      "correct_answer": "B",
       "explanation": "Model drift refers to the degradation of a machine learning model's performance over time due to changes in the underlying data distributions or relationships, requiring retraining or adaptation."
     },
     {
       "question": "Which of the following is a technique used in Explainable AI (XAI) to visualize the regions of an input image that are most relevant to a model's classification decision?",
-      "options": [
-        "LIME (Local Interpretable Model-agnostic Explanations)",
-        "SHAP (SHapley Additive exPlanations)",
-        "Grad-CAM (Gradient-weighted Class Activation Mapping)",
-        "Partial Dependence Plots (PDPs)"
-      ],
-      "correct_answer": "Grad-CAM (Gradient-weighted Class Activation Mapping)",
+      "options": {
+        "A": "LIME (Local Interpretable Model-agnostic Explanations)",
+        "B": "SHAP (SHapley Additive exPlanations)",
+        "C": "Grad-CAM (Gradient-weighted Class Activation Mapping)",
+        "D": "Partial Dependence Plots (PDPs)"
+      },
+      "correct_answer": "C",
       "explanation": "Grad-CAM is a popular XAI technique for convolutional neural networks that produces a coarse localization map highlighting the important regions in the image for predicting the concept."
     },
     {
       "question": "What is the primary benefit of MLOps?",
-      "options": [
-        "To reduce the cost of machine learning development.",
-        "To automate and standardize the machine learning lifecycle.",
-        "To improve the accuracy of machine learning models.",
-        "To increase the interpretability of machine learning models."
-      ],
-      "correct_answer": "To automate and standardize the machine learning lifecycle.",
+      "options": {
+        "A": "To reduce the cost of machine learning development.",
+        "B": "To automate and standardize the machine learning lifecycle.",
+        "C": "To improve the accuracy of machine learning models.",
+        "D": "To increase the interpretability of machine learning models."
+      },
+      "correct_answer": "B",
       "explanation": "MLOps (Machine Learning Operations) is a set of practices that aims to deploy and maintain ML models in production reliably and efficiently. It combines ML, DevOps, and data engineering."
     },
     {
       "question": "A healthcare provider wants to extract protected health information (PHI) from unstructured clinical notes while ensuring HIPAA compliance. Which AWS service is best suited for this task?",
-      "options": [
-        "Amazon Comprehend Medical",
-        "Amazon Textract",
-        "Amazon Comprehend",
-        "Amazon Rekognition"
-      ],
-      "correct_answer": "Amazon Comprehend Medical",
+      "options": {
+        "A": "Amazon Comprehend Medical",
+        "B": "Amazon Textract",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Rekognition"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon Comprehend Medical is a natural language processing (NLP) service that uses machine learning to extract relevant medical information, such as PHI, from unstructured clinical text, designed with HIPAA eligibility."
     },
     {
       "question": "Which of the following represents a common challenge in building generative AI models?",
-      "options": [
-        "Ensuring the model always produces factually correct information.",
-        "Training the model to generate diverse and creative outputs.",
-        "Managing the large datasets required for training.",
-        "All of the above."
-      ],
-      "correct_answer": "All of the above.",
+      "options": {
+        "A": "Ensuring the model always produces factually correct information.",
+        "B": "Training the model to generate diverse and creative outputs.",
+        "C": "Managing the large datasets required for training.",
+        "D": "All of the above."
+      },
+      "correct_answer": "D",
       "explanation": "Generative AI models face challenges in maintaining factual accuracy (hallucinations), generating high-quality and diverse outputs, and requiring significant computational resources and data for training."
     },
     {
       "question": "What is the purpose of 'human-in-the-loop' machine learning?",
-      "options": [
-        "To fully automate the machine learning pipeline.",
-        "To use human intelligence to improve machine learning models.",
-        "To reduce the amount of data required for training.",
-        "To increase the speed of machine learning inference."
-      ],
-      "correct_answer": "To use human intelligence to improve machine learning models.",
+      "options": {
+        "A": "To fully automate the machine learning pipeline.",
+        "B": "To use human intelligence to improve machine learning models.",
+        "C": "To reduce the amount of data required for training.",
+        "D": "To increase the speed of machine learning inference."
+      },
+      "correct_answer": "B",
       "explanation": "Human-in-the-loop (HITL) machine learning is a branch of AI that leverages both human and machine intelligence to create machine learning models. In HITL, humans are involved in a feedback loop to continuously improve the model's accuracy and relevance."
     },
     {
       "question": "Which AWS service provides pre-trained models for common vision tasks, such as object detection, facial analysis, and image moderation?",
-      "options": [
-        "Amazon Rekognition",
-        "Amazon Textract",
-        "Amazon Comprehend",
-        "Amazon SageMaker"
-      ],
-      "correct_answer": "Amazon Rekognition",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "Amazon Textract",
+        "C": "Amazon Comprehend",
+        "D": "Amazon SageMaker"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon Rekognition is a deep learning service that makes it easy to add image and video analysis to your applications. It can identify objects, people, text, scenes, and activities, as well as detect inappropriate content."
     },
     {
       "question": "What is the primary role of Amazon Kendra?",
-      "options": [
-        "To provide personalized recommendations.",
-        "To build conversational interfaces.",
-        "To power intelligent enterprise search across various content repositories.",
-        "To translate text between languages."
-      ],
-      "correct_answer": "To power intelligent enterprise search across various content repositories.",
+      "options": {
+        "A": "To provide personalized recommendations.",
+        "B": "To build conversational interfaces.",
+        "C": "To power intelligent enterprise search across various content repositories.",
+        "D": "To translate text between languages."
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Kendra is an intelligent search service powered by machine learning that allows organizations to search across various content repositories, including documents, websites, and databases, using natural language queries."
     },
     {
       "question": "When designing an AI system, which of the following is a crucial step to ensure fairness and prevent bias?",
-      "options": [
-        "Using the largest possible dataset for training.",
-        "Ignoring data from minority groups to simplify the model.",
-        "Regularly auditing the model and data for bias, and implementing mitigation strategies.",
-        "Deploying the model without human oversight."
-      ],
-      "correct_answer": "Regularly auditing the model and data for bias, and implementing mitigation strategies.",
+      "options": {
+        "A": "Using the largest possible dataset for training.",
+        "B": "Ignoring data from minority groups to simplify the model.",
+        "C": "Regularly auditing the model and data for bias, and implementing mitigation strategies.",
+        "D": "Deploying the model without human oversight."
+      },
+      "correct_answer": "C",
       "explanation": "Regularly auditing the model and data for bias, and implementing mitigation strategies, is crucial for ensuring fairness and preventing discrimination in AI systems."
     },
     {
       "question": "Which of the following is an example of an AWS service that uses deep learning for natural language understanding (NLU)?",
-      "options": [
-        "Amazon EC2",
-        "Amazon S3",
-        "Amazon Comprehend",
-        "Amazon DynamoDB"
-      ],
-      "correct_answer": "Amazon Comprehend",
+      "options": {
+        "A": "Amazon EC2",
+        "B": "Amazon S3",
+        "C": "Amazon Comprehend",
+        "D": "Amazon DynamoDB"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Comprehend is a natural-language processing (NLP) service that uses machine learning to find insights and relationships in text, which falls under natural language understanding (NLU)."
     },
     {
       "question": "What is the 'traceability' principle in responsible AI?",
-      "options": [
-        "The ability to track the model's performance over time.",
-        "The ability to audit the data, models, and decisions made by an AI system.",
-        "The ability to explain the model's predictions to end-users.",
-        "The ability to recover from system failures."
-      ],
-      "correct_answer": "The ability to audit the data, models, and decisions made by an AI system.",
+      "options": {
+        "A": "The ability to track the model's performance over time.",
+        "B": "The ability to audit the data, models, and decisions made by an AI system.",
+        "C": "The ability to explain the model's predictions to end-users.",
+        "D": "The ability to recover from system failures."
+      },
+      "correct_answer": "B",
       "explanation": "Traceability in responsible AI refers to the ability to audit and track the lineage of data, models, and decisions made by an AI system, ensuring accountability and facilitating debugging."
     },
     {
       "question": "Which AWS service provides a fully managed environment to run your data processing jobs using Apache Spark, Hadoop, Presto, and other big data frameworks?",
-      "options": [
-        "Amazon Redshift",
-        "Amazon EMR",
-        "Amazon Kinesis",
-        "AWS Glue"
-      ],
-      "correct_answer": "Amazon EMR",
+      "options": {
+        "A": "Amazon Redshift",
+        "B": "Amazon EMR",
+        "C": "Amazon Kinesis",
+        "D": "AWS Glue"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon EMR (Elastic MapReduce) is a cloud big data platform for processing vast amounts of data using open-source tools like Apache Spark, Hadoop, and Presto."
     },
     {
       "question": "When considering the 'Privacy' principle in responsible AI, what is a key best practice for handling sensitive data?",
-      "options": [
-        "Storing sensitive data in plaintext for easy access.",
-        "Anonymizing or encrypting sensitive data and implementing strict access controls.",
-        "Sharing sensitive data with third parties without consent.",
-        "Collecting as much data as possible, regardless of relevance."
-      ],
-      "correct_answer": "Anonymizing or encrypting sensitive data and implementing strict access controls.",
+      "options": {
+        "A": "Storing sensitive data in plaintext for easy access.",
+        "B": "Anonymizing or encrypting sensitive data and implementing strict access controls.",
+        "C": "Sharing sensitive data with third parties without consent.",
+        "D": "Collecting as much data as possible, regardless of relevance."
+      },
+      "correct_answer": "B",
       "explanation": "To uphold privacy, sensitive data should be anonymized or encrypted, and access should be strictly controlled, adhering to principles of data minimization and purpose limitation."
     },
     {
       "question": "A healthcare organization needs to store and analyze large amounts of health data in a secure, compliant manner. Which AWS service is designed for this purpose?",
-      "options": [
-        "Amazon S3",
-        "Amazon DynamoDB",
-        "Amazon HealthLake",
-        "Amazon Redshift"
-      ],
-      "correct_answer": "Amazon HealthLake",
+      "options": {
+        "A": "Amazon S3",
+        "B": "Amazon DynamoDB",
+        "C": "Amazon HealthLake",
+        "D": "Amazon Redshift"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon HealthLake is a HIPAA-eligible service that enables healthcare and life sciences organizations to store, transform, query, and analyze health data at scale."
     },
     {
       "question": "An industrial company wants to use machine learning to detect early signs of equipment failure by analyzing sensor data streams. Which AWS service can help with this predictive maintenance?",
-      "options": [
-        "Amazon Kinesis",
-        "Amazon Lookout for Equipment",
-        "AWS IoT Analytics",
-        "Amazon Sagemaker"
-      ],
-      "correct_answer": "Amazon Lookout for Equipment",
+      "options": {
+        "A": "Amazon Kinesis",
+        "B": "Amazon Lookout for Equipment",
+        "C": "AWS IoT Analytics",
+        "D": "Amazon Sagemaker"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Lookout for Equipment is a machine learning service that uses data from your factory sensors to detect abnormal machine behavior, so you can take action before a machine failure occurs."
     },
     {
       "question": "What is the primary purpose of data preprocessing in a machine learning pipeline?",
-      "options": [
-        "To train the machine learning model.",
-        "To evaluate the performance of the machine learning model.",
-        "To prepare raw data for machine learning algorithms by cleaning, transforming, and formatting it.",
-        "To deploy the machine learning model to production."
-      ],
-      "correct_answer": "To prepare raw data for machine learning algorithms by cleaning, transforming, and formatting it.",
+      "options": {
+        "A": "To train the machine learning model.",
+        "B": "To evaluate the performance of the machine learning model.",
+        "C": "To prepare raw data for machine learning algorithms by cleaning, transforming, and formatting it.",
+        "D": "To deploy the machine learning model to production."
+      },
+      "correct_answer": "C",
       "explanation": "Data preprocessing involves cleaning (handling missing values, outliers), transforming (scaling, encoding categorical data), and formatting raw data to make it suitable for machine learning algorithms, which often require numerical and structured inputs."
     },
     {
       "question": "A company wants to collect, process, and analyze real-time streaming data from thousands of connected devices. Which AWS service is best suited for this task?",
-      "options": [
-        "Amazon S3",
-        "Amazon DynamoDB",
-        "Amazon Kinesis",
-        "AWS Glue"
-      ],
-      "correct_answer": "Amazon Kinesis",
+      "options": {
+        "A": "Amazon S3",
+        "B": "Amazon DynamoDB",
+        "C": "Amazon Kinesis",
+        "D": "AWS Glue"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Kinesis is a fully managed service that makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information."
     },
     {
       "question": "What is the role of 'model interpretability' in responsible AI?",
-      "options": [
-        "To make the model's predictions more accurate.",
-        "To help humans understand why an AI model made a certain decision.",
-        "To speed up the model's training process.",
-        "To reduce the cost of model deployment."
-      ],
-      "correct_answer": "To help humans understand why an AI model made a certain decision.",
+      "options": {
+        "A": "To make the model's predictions more accurate.",
+        "B": "To help humans understand why an AI model made a certain decision.",
+        "C": "To speed up the model's training process.",
+        "D": "To reduce the cost of model deployment."
+      },
+      "correct_answer": "B",
       "explanation": "Model interpretability refers to the extent to which a human can understand the cause and effect of an AI model's internal workings, which is crucial for building trust and ensuring accountability."
     },
     {
       "question": "Which AWS service is a serverless data integration service that makes it easy to discover, prepare, and combine data for analytics, machine learning, and application development?",
-      "options": [
-        "Amazon EMR",
-        "AWS Glue",
-        "Amazon Athena",
-        "Amazon Redshift"
-      ],
-      "correct_answer": "AWS Glue",
+      "options": {
+        "A": "Amazon EMR",
+        "B": "AWS Glue",
+        "C": "Amazon Athena",
+        "D": "Amazon Redshift"
+      },
+      "correct_answer": "B",
       "explanation": "AWS Glue is a serverless data integration service that makes it easy to discover, prepare, and combine data for analytics, machine learning, and application development."
     },
     {
       "question": "What is the difference between 'strong AI' and 'weak AI'?",
-      "options": [
-        "Strong AI can perform human-like cognitive tasks, while weak AI is designed for specific, narrow tasks.",
-        "Strong AI is more accurate than weak AI.",
-        "Strong AI requires more data than weak AI.",
-        "Strong AI is a theoretical concept, while weak AI is practically implemented."
-      ],
-      "correct_answer": "Strong AI can perform human-like cognitive tasks, while weak AI is designed for specific, narrow tasks.",
+      "options": {
+        "A": "Strong AI can perform human-like cognitive tasks, while weak AI is designed for specific, narrow tasks.",
+        "B": "Strong AI is more accurate than weak AI.",
+        "C": "Strong AI requires more data than weak AI.",
+        "D": "Strong AI is a theoretical concept, while weak AI is practically implemented."
+      },
+      "correct_answer": "A",
       "explanation": "Strong AI (or Artificial General Intelligence) refers to AI that can understand, learn, and apply intelligence to any intellectual task that a human being can. Weak AI (or Narrow AI) is designed and trained for a particular task."
     },
     {
       "question": "Which AWS service allows you to quickly start a new machine learning project and access a curated set of foundation models, built-in algorithms, and pre-built solutions?",
-      "options": [
-        "Amazon SageMaker Studio",
-        "Amazon SageMaker JumpStart",
-        "Amazon SageMaker Canvas",
-        "Amazon SageMaker Ground Truth"
-      ],
-      "correct_answer": "Amazon SageMaker JumpStart",
+      "options": {
+        "A": "Amazon SageMaker Studio",
+        "B": "Amazon SageMaker JumpStart",
+        "C": "Amazon SageMaker Canvas",
+        "D": "Amazon SageMaker Ground Truth"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon SageMaker JumpStart helps you quickly get started with machine learning. It provides a set of solutions for common use cases, one-click deployment of over 300 popular models, and a choice of foundation models to jumpstart generative AI applications."
     },
     {
       "question": "What is 'data governance' in the context of machine learning?",
-      "options": [
-        "The process of collecting data for machine learning models.",
-        "The process of managing the availability, usability, integrity, and security of data in an enterprise, including its use in ML.",
-        "The process of training machine learning models.",
-        "The process of deploying machine learning models to production."
-      ],
-      "correct_answer": "The process of managing the availability, usability, integrity, and security of data in an enterprise, including its use in ML.",
+      "options": {
+        "A": "The process of collecting data for machine learning models.",
+        "B": "The process of managing the availability, usability, integrity, and security of data in an enterprise, including its use in ML.",
+        "C": "The process of training machine learning models.",
+        "D": "The process of deploying machine learning models to production."
+      },
+      "correct_answer": "B",
       "explanation": "Data governance ensures the quality, security, and compliance of data throughout its lifecycle, which is essential for ethical and effective machine learning."
     },
     {
       "question": "Which AWS service is designed to make it easy for business analysts and non-technical users to build, evaluate, and deploy ML models without writing any code?",
-      "options": [
-        "Amazon SageMaker Studio",
-        "Amazon SageMaker JumpStart",
-        "Amazon SageMaker Canvas",
-        "Amazon SageMaker Ground Truth"
-      ],
-      "correct_answer": "Amazon SageMaker Canvas",
+      "options": {
+        "A": "Amazon SageMaker Studio",
+        "B": "Amazon SageMaker JumpStart",
+        "C": "Amazon SageMaker Canvas",
+        "D": "Amazon SageMaker Ground Truth"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon SageMaker Canvas provides a visual point-and-click interface that enables business analysts and other non-technical users to build ML models and generate accurate predictions without writing any code."
     },
     {
       "question": "What is the concept of 'model versioning' in MLOps?",
-      "options": [
-        "The process of deploying multiple models to production simultaneously.",
-        "The practice of tracking and managing different versions of machine learning models and their associated artifacts.",
-        "The process of converting a machine learning model to a different format.",
-        "The practice of combining multiple machine learning models into a single ensemble model."
-      ],
-      "correct_answer": "The practice of tracking and managing different versions of machine learning models and their associated artifacts.",
+      "options": {
+        "A": "The process of deploying multiple models to production simultaneously.",
+        "B": "The practice of tracking and managing different versions of machine learning models and their associated artifacts.",
+        "C": "The process of converting a machine learning model to a different format.",
+        "D": "The practice of combining multiple machine learning models into a single ensemble model."
+      },
+      "correct_answer": "B",
       "explanation": "Model versioning is crucial for MLOps as it allows for tracking changes, reproducing results, and managing the lifecycle of different model iterations."
     },
     {
       "question": "Which AWS service provides a developer-friendly integrated development environment (IDE) for machine learning, enabling data scientists and developers to perform all ML development steps?",
-      "options": [
-        "Amazon SageMaker Studio",
-        "Amazon SageMaker JumpStart",
-        "Amazon SageMaker Canvas",
-        "Amazon SageMaker Ground Truth"
-      ],
-      "correct_answer": "Amazon SageMaker Studio",
+      "options": {
+        "A": "Amazon SageMaker Studio",
+        "B": "Amazon SageMaker JumpStart",
+        "C": "Amazon SageMaker Canvas",
+        "D": "Amazon SageMaker Ground Truth"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon SageMaker Studio is the first fully integrated development environment (IDE) for machine learning, providing a single web-based visual interface where you can perform all ML development steps."
     },
     {
       "question": "In responsible AI, what does 'accountability' primarily refer to?",
-      "options": [
-        "The ability to attribute decisions made by an AI system to responsible parties.",
-        "The ability of an AI system to explain its decisions.",
-        "The ability of an AI system to perform accurately.",
-        "The ability of an AI system to be fair and unbiased."
-      ],
-      "correct_answer": "The ability to attribute decisions made by an AI system to responsible parties.",
+      "options": {
+        "A": "The ability to attribute decisions made by an AI system to responsible parties.",
+        "B": "The ability of an AI system to explain its decisions.",
+        "C": "The ability of an AI system to perform accurately.",
+        "D": "The ability of an AI system to be fair and unbiased."
+      },
+      "correct_answer": "A",
       "explanation": "Accountability in responsible AI ensures that individuals and organizations are responsible for the outcomes and impacts of AI systems, allowing for remediation and redress when necessary."
     },
     {
       "question": "Which of the following is a best practice for securing machine learning models?",
-      "options": [
-        "Storing model artifacts in publicly accessible S3 buckets.",
-        "Encrypting model artifacts and restricting access using IAM policies.",
-        "Using default credentials for SageMaker notebooks.",
-        "Disabling logging for model inference endpoints."
-      ],
-      "correct_answer": "Encrypting model artifacts and restricting access using IAM policies.",
+      "options": {
+        "A": "Storing model artifacts in publicly accessible S3 buckets.",
+        "B": "Encrypting model artifacts and restricting access using IAM policies.",
+        "C": "Using default credentials for SageMaker notebooks.",
+        "D": "Disabling logging for model inference endpoints."
+      },
+      "correct_answer": "B",
       "explanation": "Encrypting model artifacts at rest and in transit, and enforcing strict access controls with IAM policies, are fundamental security best practices for protecting machine learning models."
     },
     {
       "question": "A financial institution wants to use AI to detect anomalies in transaction data to prevent fraud. Which AWS service is best suited for this task?",
-      "options": [
-        "Amazon Rekognition",
-        "Amazon Fraud Detector",
-        "Amazon Comprehend",
-        "Amazon Personalize"
-      ],
-      "correct_answer": "Amazon Fraud Detector",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "Amazon Fraud Detector",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Personalize"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Fraud Detector is a fully managed service that uses machine learning to identify potentially fraudulent online activities, including transaction fraud."
     },
     {
       "question": "What is the primary goal of 'data minimization' in the context of data privacy for machine learning?",
-      "options": [
-        "To collect as much data as possible.",
-        "To only collect the data that is necessary for a specific purpose.",
-        "To store data indefinitely.",
-        "To share data with all available third-party services."
-      ],
-      "correct_answer": "To only collect the data that is necessary for a specific purpose.",
+      "options": {
+        "A": "To collect as much data as possible.",
+        "B": "To only collect the data that is necessary for a specific purpose.",
+        "C": "To store data indefinitely.",
+        "D": "To share data with all available third-party services."
+      },
+      "correct_answer": "B",
       "explanation": "Data minimization is a privacy principle that dictates that only data absolutely necessary to achieve a specified purpose should be collected, processed, and stored, thereby reducing potential privacy risks."
     },
     {
       "question": "Which of the following is an example of a 'multimodal' generative AI model?",
-      "options": [
-        "A model that generates text from text input.",
-        "A model that generates images from image input.",
-        "A model that generates text from image input, or images from text input.",
-        "A model that generates structured data from structured data input."
-      ],
-      "correct_answer": "A model that generates text from image input, or images from text input.",
+      "options": {
+        "A": "A model that generates text from text input.",
+        "B": "A model that generates images from image input.",
+        "C": "A model that generates text from image input, or images from text input.",
+        "D": "A model that generates structured data from structured data input."
+      },
+      "correct_answer": "C",
       "explanation": "Multimodal generative AI models can process and generate content across different modalities, such as text and images, allowing for tasks like image captioning or generating images from textual descriptions."
     },
     {
       "question": "A retail company wants to analyze customer purchasing patterns to optimize product placement and marketing strategies. Which AWS service can help with this predictive analysis?",
-      "options": [
-        "Amazon SageMaker",
-        "Amazon Forecast",
-        "Amazon Personalize",
-        "Amazon Comprehend"
-      ],
-      "correct_answer": "Amazon Forecast",
+      "options": {
+        "A": "Amazon SageMaker",
+        "B": "Amazon Forecast",
+        "C": "Amazon Personalize",
+        "D": "Amazon Comprehend"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts for various business metrics, including demand for products, which can inform retail strategies."
     },
     {
       "question": "What is 'synthetic data' in the context of machine learning?",
-      "options": [
-        "Data collected from real-world sensors.",
-        "Data generated artificially by algorithms, often resembling real-world data but without containing any sensitive or private information.",
-        "Data that has been manually labeled by humans.",
-        "Data that is used to evaluate the performance of a machine learning model."
-      ],
-      "correct_answer": "Data generated artificially by algorithms, often resembling real-world data but without containing any sensitive or private information.",
+      "options": {
+        "A": "Data collected from real-world sensors.",
+        "B": "Data generated artificially by algorithms, often resembling real-world data but without containing any sensitive or private information.",
+        "C": "Data that has been manually labeled by humans.",
+        "D": "Data that is used to evaluate the performance of a machine learning model."
+      },
+      "correct_answer": "B",
       "explanation": "Synthetic data is artificially generated data that mimics the statistical properties of real-world data without directly copying it, useful for privacy-preserving ML, data augmentation, and testing."
     },
     {
       "question": "Which AWS service allows you to build, train, and deploy custom machine learning models for virtually any use case?",
-      "options": [
-        "Amazon Rekognition",
-        "Amazon Comprehend",
-        "Amazon SageMaker",
-        "Amazon Polly"
-      ],
-      "correct_answer": "Amazon SageMaker",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "Amazon Comprehend",
+        "C": "Amazon SageMaker",
+        "D": "Amazon Polly"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon SageMaker is a fully managed service that provides every developer and data scientist with the ability to build, train, and deploy machine learning (ML) models quickly, and customize them for various use cases."
     },
     {
       "question": "What is the key principle of 'interpretability' in responsible AI?",
-      "options": [
-        "The ability of an AI system to process data quickly.",
-        "The ability to explain or present the decision-making process of an AI model in understandable terms to a human.",
-        "The ability of an AI system to learn autonomously.",
-        "The ability of an AI system to operate without errors."
-      ],
-      "correct_answer": "The ability to explain or present the decision-making process of an AI model in understandable terms to a human.",
+      "options": {
+        "A": "The ability of an AI system to process data quickly.",
+        "B": "The ability to explain or present the decision-making process of an AI model in understandable terms to a human.",
+        "C": "The ability of an AI system to learn autonomously.",
+        "D": "The ability of an AI system to operate without errors."
+      },
+      "correct_answer": "B",
       "explanation": "Interpretability aims to make AI models transparent by allowing humans to understand the reasoning behind a model's predictions, which builds trust and enables identification of potential issues."
     },
     {
       "question": "A media company wants to automatically generate subtitles for its video content. Which AWS service can convert the audio track of the videos into text?",
-      "options": [
-        "Amazon Polly",
-        "Amazon Transcribe",
-        "Amazon Translate",
-        "Amazon Rekognition"
-      ],
-      "correct_answer": "Amazon Transcribe",
+      "options": {
+        "A": "Amazon Polly",
+        "B": "Amazon Transcribe",
+        "C": "Amazon Translate",
+        "D": "Amazon Rekognition"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Transcribe is an automatic speech recognition (ASR) service that converts speech to text quickly and accurately, making it suitable for generating subtitles."
     },
     {
       "question": "Which AWS service is designed to automate the process of building, training, and deploying machine learning models, supporting MLOps practices?",
-      "options": [
-        "Amazon SageMaker Studio",
-        "Amazon SageMaker Pipelines",
-        "Amazon SageMaker Data Wrangler",
-        "Amazon SageMaker Feature Store"
-      ],
-      "correct_answer": "Amazon SageMaker Pipelines",
+      "options": {
+        "A": "Amazon SageMaker Studio",
+        "B": "Amazon SageMaker Pipelines",
+        "C": "Amazon SageMaker Data Wrangler",
+        "D": "Amazon SageMaker Feature Store"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon SageMaker Pipelines is the first purpose-built CI/CD service for machine learning, enabling you to build, automate, and manage end-to-end machine learning workflows at scale."
     },
     {
       "question": "What is the concept of 'differential privacy' in the context of machine learning?",
-      "options": [
-        "A technique to make models more accurate.",
-        "A system for publicly sharing all individual data while preserving privacy.",
-        "A strong, mathematical guarantee of privacy for individuals in a dataset, ensuring that statistics about the dataset do not reveal information about any single individual.",
-        "A method to reduce the size of machine learning models."
-      ],
-      "correct_answer": "A strong, mathematical guarantee of privacy for individuals in a dataset, ensuring that statistics about the dataset do not reveal information about any single individual.",
+      "options": {
+        "A": "A technique to make models more accurate.",
+        "B": "A system for publicly sharing all individual data while preserving privacy.",
+        "C": "A strong, mathematical guarantee of privacy for individuals in a dataset, ensuring that statistics about the dataset do not reveal information about any single individual.",
+        "D": "A method to reduce the size of machine learning models."
+      },
+      "correct_answer": "C",
       "explanation": "Differential privacy provides a rigorous, mathematical framework for quantifying privacy loss, allowing the release of aggregate information about a dataset while protecting the privacy of individuals within it."
     },
     {
       "question": "A company wants to automatically moderate user-generated content for inappropriate material. Which AWS service offers pre-trained content moderation capabilities?",
-      "options": [
-        "Amazon Comprehend",
-        "Amazon Rekognition",
-        "Amazon Textract",
-        "Amazon Transcribe"
-      ],
-      "correct_answer": "Amazon Rekognition",
+      "options": {
+        "A": "Amazon Comprehend",
+        "B": "Amazon Rekognition",
+        "C": "Amazon Textract",
+        "D": "Amazon Transcribe"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Rekognition offers pre-trained content moderation features for images and videos, helping to detect explicit, suggestive, or generally offensive content, and enabling automated moderation of user-generated content."
     },
     {
       "question": "A software development company wants to analyze its codebase for potential bugs and security vulnerabilities using AI. Which AWS service can assist with this task?",
-      "options": [
-        "Amazon CodeGuru",
-        "Amazon CodeWhisperer",
-        "AWS X-Ray",
-        "Amazon Inspector"
-      ],
-      "correct_answer": "Amazon CodeGuru",
+      "options": {
+        "A": "Amazon CodeGuru",
+        "B": "Amazon CodeWhisperer",
+        "C": "AWS X-Ray",
+        "D": "Amazon Inspector"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon CodeGuru is a machine learning service that provides intelligent recommendations to improve code quality and identify an application’s most expensive lines of code. It helps developers find and fix bugs, improve performance, and detect security vulnerabilities."
     },
     {
       "question": "Which of the following describes 'transfer learning' in the context of generative AI?",
-      "options": [
-        "Training a generative model from scratch on a new, small dataset.",
-        "Using a pre-trained generative model and fine-tuning it on a smaller, domain-specific dataset.",
-        "Combining multiple generative models to create a larger model.",
-        "Converting a generative model into a discriminative model."
-      ],
-      "correct_answer": "Using a pre-trained generative model and fine-tuning it on a smaller, domain-specific dataset.",
+      "options": {
+        "A": "Training a generative model from scratch on a new, small dataset.",
+        "B": "Using a pre-trained generative model and fine-tuning it on a smaller, domain-specific dataset.",
+        "C": "Combining multiple generative models to create a larger model.",
+        "D": "Converting a generative model into a discriminative model."
+      },
+      "correct_answer": "B",
       "explanation": "Transfer learning in generative AI involves leveraging a large, pre-trained model and adapting it to a new, often smaller, dataset or task by fine-tuning its parameters. This approach significantly reduces training time and data requirements."
     },
     {
       "question": "What is the primary purpose of 'hyperparameter optimization' in machine learning?",
-      "options": [
-        "To select the best features for a model.",
-        "To find the best set of hyperparameters that maximize model performance.",
-        "To reduce the dimensionality of the dataset.",
-        "To deploy the model to production more efficiently."
-      ],
-      "correct_answer": "To find the best set of hyperparameters that maximize model performance.",
+      "options": {
+        "A": "To select the best features for a model.",
+        "B": "To find the best set of hyperparameters that maximize model performance.",
+        "C": "To reduce the dimensionality of the dataset.",
+        "D": "To deploy the model to production more efficiently."
+      },
+      "correct_answer": "B",
       "explanation": "Hyperparameter optimization (HPO) is the process of finding the optimal combination of hyperparameters (parameters that are set before training) for a machine learning model to achieve the best performance on a given task."
     },
     {
       "question": "Which AWS service is designed to help you create, manage, and scale secure, intelligent agents that can conduct conversations and perform tasks?",
-      "options": [
-        "Amazon Polly",
-        "Amazon Transcribe",
-        "Amazon Lex",
-        "Amazon Comprehend"
-      ],
-      "correct_answer": "Amazon Lex",
+      "options": {
+        "A": "Amazon Polly",
+        "B": "Amazon Transcribe",
+        "C": "Amazon Lex",
+        "D": "Amazon Comprehend"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Lex is a service for building conversational interfaces into any application using voice and text. Lex provides the advanced deep learning functionalities of automatic speech recognition (ASR) for converting speech to text, and natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions."
     },
     {
       "question": "In the context of large language models, what does 'zero-shot learning' mean?",
-      "options": [
-        "The model is trained on a massive dataset and can perform a task without any specific examples or fine-tuning for that task.",
-        "The model is trained on a few examples to learn a new task.",
-        "The model is trained to generate code from natural language descriptions.",
-        "The model requires extensive fine-tuning for every new task."
-      ],
-      "correct_answer": "The model is trained on a massive dataset and can perform a task without any specific examples or fine-tuning for that task.",
+      "options": {
+        "A": "The model is trained on a massive dataset and can perform a task without any specific examples or fine-tuning for that task.",
+        "B": "The model is trained on a few examples to learn a new task.",
+        "C": "The model is trained to generate code from natural language descriptions.",
+        "D": "The model requires extensive fine-tuning for every new task."
+      },
+      "correct_answer": "A",
       "explanation": "Zero-shot learning refers to the ability of a model, especially a large language model, to perform a task it hasn't been explicitly trained on, relying on its broad understanding gained from vast pre-training data."
     },
     {
       "question": "What is the purpose of 'Responsible AI' frameworks and guidelines?",
-      "options": [
-        "To maximize the profits generated by AI systems.",
-        "To ensure AI systems are developed and used in an ethical, fair, and safe manner.",
-        "To accelerate the development of AI technologies.",
-        "To reduce the complexity of AI model deployment."
-      ],
-      "correct_answer": "To ensure AI systems are developed and used in an ethical, fair, and safe manner.",
+      "options": {
+        "A": "To maximize the profits generated by AI systems.",
+        "B": "To ensure AI systems are developed and used in an ethical, fair, and safe manner.",
+        "C": "To accelerate the development of AI technologies.",
+        "D": "To reduce the complexity of AI model deployment."
+      },
+      "correct_answer": "B",
       "explanation": "Responsible AI frameworks provide principles and guidelines to ensure that AI systems are developed and deployed ethically, fairly, transparently, and safely, mitigating potential risks and negative impacts."
     },
     {
       "question": "A media company wants to analyze vast amounts of video content to identify specific events, objects, and people for content cataloging and search. Which AWS service is best suited for advanced video analysis at scale?",
-      "options": [
-        "Amazon Transcribe",
-        "Amazon Rekognition Video",
-        "Amazon Textract",
-        "Amazon Comprehend"
-      ],
-      "correct_answer": "Amazon Rekognition Video",
+      "options": {
+        "A": "Amazon Transcribe",
+        "B": "Amazon Rekognition Video",
+        "C": "Amazon Textract",
+        "D": "Amazon Comprehend"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Rekognition Video provides capabilities for detecting activities, objects, faces, and more within video streams and stored videos, making it ideal for large-scale video content analysis and cataloging."
     },
     {
       "question": "What is the main benefit of using Amazon SageMaker Feature Store?",
-      "options": [
-        "To store raw input data for machine learning models.",
-        "To create, store, and share curated machine learning features for training and inference.",
-        "To monitor the performance of deployed machine learning models.",
-        "To automate the deployment of machine learning models."
-      ],
-      "correct_answer": "To create, store, and share curated machine learning features for training and inference.",
+      "options": {
+        "A": "To store raw input data for machine learning models.",
+        "B": "To create, store, and share curated machine learning features for training and inference.",
+        "C": "To monitor the performance of deployed machine learning models.",
+        "D": "To automate the deployment of machine learning models."
+      },
+      "correct_answer": "B",
       "explanation": "Amazon SageMaker Feature Store is a fully managed repository for machine learning features. It makes it easy to store, update, retrieve, and share ML features for training and inference, promoting consistency and reusability."
     },
     {
       "question": "When building a generative AI application, what is a crucial ethical consideration regarding the data used for training?",
-      "options": [
-        "The speed of data ingestion.",
-        "The diversity and representativeness of the training data to prevent bias.",
-        "The cost of storing the training data.",
-        "The format of the training data."
-      ],
-      "correct_answer": "The diversity and representativeness of the training data to prevent bias.",
+      "options": {
+        "A": "The speed of data ingestion.",
+        "B": "The diversity and representativeness of the training data to prevent bias.",
+        "C": "The cost of storing the training data.",
+        "D": "The format of the training data."
+      },
+      "correct_answer": "B",
       "explanation": "Ensuring the diversity and representativeness of training data is a crucial ethical consideration to mitigate bias in generative AI models, which can otherwise perpetuate or amplify societal biases present in the data."
     },
     {
       "question": "A customer support center wants to analyze customer calls to automatically detect issues and trends in real-time. Which AWS service can transcribe the calls and identify keywords and phrases?",
-      "options": [
-        "Amazon Polly",
-        "Amazon Translate",
-        "Amazon Transcribe",
-        "Amazon Comprehend Medical"
-      ],
-      "correct_answer": "Amazon Transcribe",
+      "options": {
+        "A": "Amazon Polly",
+        "B": "Amazon Translate",
+        "C": "Amazon Transcribe",
+        "D": "Amazon Comprehend Medical"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Transcribe can convert speech to text from customer calls in real-time, and in conjunction with services like Amazon Comprehend, it can help identify keywords, sentiment, and other insights."
     },
     {
       "question": "What is 'Adversarial Robustness' in the context of responsible AI?",
-      "options": [
-        "The ability of a model to resist adversarial attacks that aim to trick it into making incorrect predictions.",
-        "The ability of a model to learn from new data without human intervention.",
-        "The speed at which a model can process data.",
-        "The transparency of a model's decision-making process."
-      ],
-      "correct_answer": "The ability of a model to resist adversarial attacks that aim to trick it into making incorrect predictions.",
+      "options": {
+        "A": "The ability of a model to resist adversarial attacks that aim to trick it into making incorrect predictions.",
+        "B": "The ability of a model to learn from new data without human intervention.",
+        "C": "The speed at which a model can process data.",
+        "D": "The transparency of a model's decision-making process."
+      },
+      "correct_answer": "A",
       "explanation": "Adversarial Robustness refers to the resilience of an AI model against malicious inputs designed to cause misclassification or incorrect outputs, which is a critical aspect of secure and reliable AI systems."
     },
     {
       "question": "Which AWS service enables you to build and deploy custom machine learning models on edge devices for local inference?",
-      "options": [
-        "Amazon SageMaker Neo",
-        "Amazon SageMaker Studio",
-        "Amazon SageMaker Canvas",
-        "Amazon SageMaker Ground Truth"
-      ],
-      "correct_answer": "Amazon SageMaker Neo",
+      "options": {
+        "A": "Amazon SageMaker Neo",
+        "B": "Amazon SageMaker Studio",
+        "C": "Amazon SageMaker Canvas",
+        "D": "Amazon SageMaker Ground Truth"
+      },
+      "correct_answer": "A",
       "explanation": "Amazon SageMaker Neo is a machine learning capability that enables developers to train machine learning models once and run them anywhere in the cloud and at the edge, compiling models to optimize performance for specific hardware."
     },
     {
       "question": "A company is developing a new AI-powered product and wants to ensure that it adheres to ethical guidelines and legal regulations. What is a key practice they should adopt?",
-      "options": [
-        "Focus solely on maximizing performance metrics.",
-        "Implement continuous monitoring for ethical risks and compliance.",
-        "Delegate all ethical considerations to the legal department.",
-        "Avoid documenting the decision-making process."
-      ],
-      "correct_answer": "Implement continuous monitoring for ethical risks and compliance.",
+      "options": {
+        "A": "Focus solely on maximizing performance metrics.",
+        "B": "Implement continuous monitoring for ethical risks and compliance.",
+        "C": "Delegate all ethical considerations to the legal department.",
+        "D": "Avoid documenting the decision-making process."
+      },
+      "correct_answer": "B",
       "explanation": "Implementing continuous monitoring for ethical risks and compliance ensures that the AI system remains aligned with ethical guidelines and legal regulations throughout its lifecycle, allowing for proactive identification and mitigation of issues."
     },
     {
       "question": "What is the primary benefit of using pre-trained foundation models in Amazon Bedrock?",
-      "options": [
-        "They are always completely free to use.",
-        "They eliminate the need for any further customization.",
-        "They provide a strong starting point, significantly reducing the time and resources needed to develop powerful generative AI applications.",
-        "They can only generate text, not images."
-      ],
-      "correct_answer": "They provide a strong starting point, significantly reducing the time and resources needed to develop powerful generative AI applications.",
+      "options": {
+        "A": "They are always completely free to use.",
+        "B": "They eliminate the need for any further customization.",
+        "C": "They provide a strong starting point, significantly reducing the time and resources needed to develop powerful generative AI applications.",
+        "D": "They can only generate text, not images."
+      },
+      "correct_answer": "C",
       "explanation": "Pre-trained foundation models in Amazon Bedrock offer a robust base of knowledge and capabilities, allowing developers to leverage advanced generative AI features with less effort, data, and training time compared to building models from scratch."
     },
     {
       "question": "Which AWS service can automatically label large datasets for machine learning training?",
-      "options": [
-        "Amazon Rekognition",
-        "Amazon SageMaker Ground Truth",
-        "Amazon Comprehend",
-        "Amazon Personalize"
-      ],
-      "correct_answer": "Amazon SageMaker Ground Truth",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "Amazon SageMaker Ground Truth",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Personalize"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon SageMaker Ground Truth helps you build highly accurate training datasets for machine learning much faster. It offers automated data labeling and human-in-the-loop workflows to provide accurate labels."
     },
     {
       "question": "In the context of generative AI, what is 'in-context learning'?",
-      "options": [
-        "Training a model with a very large dataset.",
-        "The ability of a large language model to learn a new task from a few examples provided in the prompt, without updating its weights.",
-        "The process of fine-tuning a model on a new dataset.",
-        "The model's ability to explain its own decisions."
-      ],
-      "correct_answer": "The ability of a large language model to learn a new task from a few examples provided in the prompt, without updating its weights.",
+      "options": {
+        "A": "Training a model with a very large dataset.",
+        "B": "The ability of a large language model to learn a new task from a few examples provided in the prompt, without updating its weights.",
+        "C": "The process of fine-tuning a model on a new dataset.",
+        "D": "The model's ability to explain its own decisions."
+      },
+      "correct_answer": "B",
       "explanation": "In-context learning (also known as few-shot learning) allows large language models to perform new tasks by providing a few examples directly within the input prompt, without requiring explicit fine-tuning or model weight updates."
     },
     {
       "question": "Which of the following is a key aspect of 'model governance' in MLOps?",
-      "options": [
-        "Ensuring models are always 100% accurate.",
-        "Establishing processes and policies for managing the development, deployment, and monitoring of machine learning models.",
-        "Minimizing the computational resources used by models.",
-        "Focusing solely on the interpretability of models."
-      ],
-      "correct_answer": "Establishing processes and policies for managing the development, deployment, and monitoring of machine learning models.",
+      "options": {
+        "A": "Ensuring models are always 100% accurate.",
+        "B": "Establishing processes and policies for managing the development, deployment, and monitoring of machine learning models.",
+        "C": "Minimizing the computational resources used by models.",
+        "D": "Focusing solely on the interpretability of models."
+      },
+      "correct_answer": "B",
       "explanation": "Model governance involves defining policies, processes, and responsibilities for managing the entire lifecycle of machine learning models, from development to deployment and monitoring, ensuring compliance, ethical considerations, and risk management."
     },
     {
       "question": "A company is developing an AI system for facial recognition and wants to ensure that it is not misused for surveillance or discriminatory purposes. Which responsible AI principle is most relevant here?",
-      "options": [
-        "Accuracy",
-        "Transparency",
-        "Privacy and Security",
-        "Fairness and Societal Impact"
-      ],
-      "correct_answer": "Fairness and Societal Impact",
+      "options": {
+        "A": "Accuracy",
+        "B": "Transparency",
+        "C": "Privacy and Security",
+        "D": "Fairness and Societal Impact"
+      },
+      "correct_answer": "D",
       "explanation": "Ensuring fairness and considering societal impact are paramount when developing AI systems like facial recognition, as misuse can lead to discrimination, civil liberties violations, and other negative consequences."
     },
     {
       "question": "Which AWS service provides an interface to query data in Amazon S3 directly using standard SQL?",
-      "options": [
-        "Amazon Redshift",
-        "Amazon EMR",
-        "AWS Glue",
-        "Amazon Athena"
-      ],
-      "correct_answer": "Amazon Athena",
+      "options": {
+        "A": "Amazon Redshift",
+        "B": "Amazon EMR",
+        "C": "AWS Glue",
+        "D": "Amazon Athena"
+      },
+      "correct_answer": "D",
       "explanation": "Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to set up or manage."
     },
     {
       "question": "What is the primary advantage of using a serverless architecture for machine learning inference?",
-      "options": [
-        "Lower latency for all types of workloads.",
-        "Reduced operational overhead and cost optimization for intermittent workloads.",
-        "Complete control over the underlying server infrastructure.",
-        "Better performance for real-time, high-throughput applications."
-      ],
-      "correct_answer": "Reduced operational overhead and cost optimization for intermittent workloads.",
+      "options": {
+        "A": "Lower latency for all types of workloads.",
+        "B": "Reduced operational overhead and cost optimization for intermittent workloads.",
+        "C": "Complete control over the underlying server infrastructure.",
+        "D": "Better performance for real-time, high-throughput applications."
+      },
+      "correct_answer": "B",
       "explanation": "Serverless architectures, like AWS Lambda, are ideal for intermittent or variable machine learning inference workloads because they automatically scale and charge only for compute time consumed, significantly reducing operational overhead and costs compared to always-on instances."
     },
     {
       "question": "A research institution is developing a new medical imaging analysis model and wants to collaborate with other institutions without directly sharing sensitive patient data. Which privacy-preserving technique should they consider?",
-      "options": [
-        "Data augmentation",
-        "Federated Learning",
-        "Transfer Learning",
-        "Synthetic Data Generation"
-      ],
-      "correct_answer": "Federated Learning",
+      "options": {
+        "A": "Data augmentation",
+        "B": "Federated Learning",
+        "C": "Transfer Learning",
+        "D": "Synthetic Data Generation"
+      },
+      "correct_answer": "B",
       "explanation": "Federated Learning allows multiple parties to collaboratively train a machine learning model without sharing their raw data, instead exchanging only model updates. This is crucial for privacy-sensitive domains like healthcare."
     },
     {
       "question": "What is the primary characteristic of a 'narrow AI' (or weak AI) system?",
-      "options": [
-        "It can perform any intellectual task that a human can.",
-        "It is designed and trained for a specific, limited task.",
-        "It possesses self-awareness and consciousness.",
-        "It can adapt to new, unforeseen tasks autonomously."
-      ],
-      "correct_answer": "It is designed and trained for a specific, limited task.",
+      "options": {
+        "A": "It can perform any intellectual task that a human can.",
+        "B": "It is designed and trained for a specific, limited task.",
+        "C": "It possesses self-awareness and consciousness.",
+        "D": "It can adapt to new, unforeseen tasks autonomously."
+      },
+      "correct_answer": "B",
       "explanation": "Narrow AI (or weak AI) refers to AI systems that are specialized in performing a single or limited set of tasks, such as playing chess or recommending products, without possessing general human-like intelligence."
     },
     {
       "question": "A manufacturing company wants to implement a solution to perform visual inspection of product defects on the factory floor using AI. Which AWS service would simplify the deployment and management of computer vision models at the edge?",
-      "options": [
-        "Amazon Rekognition",
-        "AWS Panorama",
-        "Amazon SageMaker",
-        "AWS IoT Greengrass"
-      ],
-      "correct_answer": "AWS Panorama",
+      "options": {
+        "A": "Amazon Rekognition",
+        "B": "AWS Panorama",
+        "C": "Amazon SageMaker",
+        "D": "AWS IoT Greengrass"
+      },
+      "correct_answer": "B",
       "explanation": "AWS Panorama is a machine learning appliance and SDK that allows organizations to add computer vision to their existing on-premises cameras to improve quality control, automate monitoring, and enhance workplace safety."
     },
     {
       "question": "In the context of generative AI, what is a 'generative adversarial attack'?",
-      "options": [
-        "A technique to improve the quality of generated images.",
-        "A method to fine-tune generative models for specific tasks.",
-        "Maliciously crafted inputs that cause a generative model to produce undesirable or harmful outputs.",
-        "A process to evaluate the diversity of generative models."
-      ],
-      "correct_answer": "Maliciously crafted inputs that cause a generative model to produce undesirable or harmful outputs.",
+      "options": {
+        "A": "A technique to improve the quality of generated images.",
+        "B": "A method to fine-tune generative models for specific tasks.",
+        "C": "Maliciously crafted inputs that cause a generative model to produce undesirable or harmful outputs.",
+        "D": "A process to evaluate the diversity of generative models."
+      },
+      "correct_answer": "C",
       "explanation": "Generative adversarial attacks involve creating inputs (e.g., perturbed images) that trick a generative AI model into producing outputs that are misleading, offensive, or otherwise unwanted, highlighting the importance of robustness and safety."
     },
     {
       "question": "What is the primary role of 'model validation' in the ML lifecycle?",
-      "options": [
-        "To prepare data for training.",
-        "To ensure the model performs as expected on unseen data and meets business requirements before deployment.",
-        "To train the model on the entire dataset.",
-        "To deploy the model to production."
-      ],
-      "correct_answer": "To ensure the model performs as expected on unseen data and meets business requirements before deployment.",
+      "options": {
+        "A": "To prepare data for training.",
+        "B": "To ensure the model performs as expected on unseen data and meets business requirements before deployment.",
+        "C": "To train the model on the entire dataset.",
+        "D": "To deploy the model to production."
+      },
+      "correct_answer": "B",
       "explanation": "Model validation is a critical step in the ML lifecycle where the trained model is evaluated on a separate dataset (validation set) to assess its generalization capability and ensure it meets performance metrics and business objectives."
     },
     {
       "question": "Which of the following is a best practice for managing data privacy when using generative AI for content creation?",
-      "options": [
-        "Using real customer data without anonymization for training.",
-        "Implementing data governance policies, including anonymization, consent management, and regular audits.",
-        "Sharing generated content publicly without review.",
-        "Disabling logging of generated content."
-      ],
-      "correct_answer": "Implementing data governance policies, including anonymization, consent management, and regular audits.",
+      "options": {
+        "A": "Using real customer data without anonymization for training.",
+        "B": "Implementing data governance policies, including anonymization, consent management, and regular audits.",
+        "C": "Sharing generated content publicly without review.",
+        "D": "Disabling logging of generated content."
+      },
+      "correct_answer": "B",
       "explanation": "Best practices for data privacy in generative AI involve robust data governance, including anonymization of sensitive training data, obtaining explicit consent, and regularly auditing content generation processes to prevent privacy breaches."
     },
     {
       "question": "A media streaming service wants to recommend personalized content to its users based on their viewing history and preferences. Which AWS service is purpose-built for this task?",
-      "options": [
-        "Amazon Transcribe",
-        "Amazon Personalize",
-        "Amazon Comprehend",
-        "Amazon Lex"
-      ],
-      "correct_answer": "Amazon Personalize",
+      "options": {
+        "A": "Amazon Transcribe",
+        "B": "Amazon Personalize",
+        "C": "Amazon Comprehend",
+        "D": "Amazon Lex"
+      },
+      "correct_answer": "B",
       "explanation": "Amazon Personalize is a machine learning service that enables developers to add sophisticated personalization capabilities to their applications, including real-time recommendations, based on user activity and item metadata."
     },
     {
       "question": "What is the primary purpose of 'model monitoring' in MLOps?",
-      "options": [
-        "To automatically retrain models when new data becomes available.",
-        "To track the performance of deployed machine learning models over time and detect issues like concept drift or data drift.",
-        "To optimize the cost of model inference.",
-        "To compare the performance of different models before deployment."
-      ],
-      "correct_answer": "To track the performance of deployed machine learning models over time and detect issues like concept drift or data drift.",
+      "options": {
+        "A": "To automatically retrain models when new data becomes available.",
+        "B": "To track the performance of deployed machine learning models over time and detect issues like concept drift or data drift.",
+        "C": "To optimize the cost of model inference.",
+        "D": "To compare the performance of different models before deployment."
+      },
+      "correct_answer": "B",
       "explanation": "Model monitoring continuously tracks the performance and behavior of deployed ML models, identifying issues such as data drift (changes in input data characteristics) or concept drift (changes in the relationship between input and output) that can degrade model accuracy over time."
     },
     {
       "question": "Which AWS service is specifically designed for converting text into lifelike speech?",
-      "options": [
-        "Amazon Transcribe",
-        "Amazon Translate",
-        "Amazon Polly",
-        "Amazon Lex"
-      ],
-      "correct_answer": "Amazon Polly",
+      "options": {
+        "A": "Amazon Transcribe",
+        "B": "Amazon Translate",
+        "C": "Amazon Polly",
+        "D": "Amazon Lex"
+      },
+      "correct_answer": "C",
       "explanation": "Amazon Polly is a cloud service that turns text into lifelike speech, allowing you to create applications that talk and build entirely new categories of speech-enabled products."
     },
     {
       "question": "In the context of Responsible AI, what does 'transparency' mean for an AI system?",
-      "options": [
-        "The ability to view the internal code of the AI model.",
-        "The ease with which human stakeholders can understand and explain the AI system's purpose, design, operation, and decision-making process.",
-        "The openness of the training data to public scrutiny.",
-        "The visibility of the AI system's infrastructure and resource usage."
-      ],
-      "correct_answer": "The ease with which human stakeholders can understand and explain the AI system's purpose, design, operation, and decision-making process.",
+      "options": {
+        "A": "The ability to view the internal code of the AI model.",
+        "B": "The ease with which human stakeholders can understand and explain the AI system's purpose, design, operation, and decision-making process.",
+        "C": "The openness of the training data to public scrutiny.",
+        "D": "The visibility of the AI system's infrastructure and resource usage."
+      },
+      "correct_answer": "B",
       "explanation": "Transparency in Responsible AI refers to making the AI system's workings understandable to relevant stakeholders, allowing them to comprehend how it operates, why it makes certain decisions, and its potential impacts."
     }
   ]

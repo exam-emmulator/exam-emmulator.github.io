@@ -25,12 +25,17 @@ import {
   FileQuestion,
   AlertCircle,
   CheckCircle2,
-  ChevronDown,
-  ChevronUp,
-  History,
-  Code,
   RotateCcw,
+  X,
 } from "lucide-react";
+import { NavigationMenu } from "@/components/navigation-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { storageService } from "@/lib/storage";
 import { loadSampleQuestionBanks } from "@/data/sample-questions";
 import type { QuestionBank, UserStats, ExamAttempt } from "@/lib/types";
@@ -44,9 +49,8 @@ export default function Dashboard() {
   const [bankToDelete, setBankToDelete] = useState<QuestionBank | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [showUpload, setShowUpload] = useState(false);
-  const [showHistory, setShowHistory] = useState(false);
-  const [showFormatGuide, setShowFormatGuide] = useState(false);
+  const [showUploadDialog, setShowUploadDialog] = useState(false);
+  const [showFormatDialog, setShowFormatDialog] = useState(false);
   const [resumableSession, setResumableSession] = useState<any>(null);
 
   useEffect(() => {
@@ -159,15 +163,13 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background">
+      <NavigationMenu 
+        questionBanks={questionBanks}
+        onUploadClick={() => setShowUploadDialog(true)}
+        onFormatGuideClick={() => setShowFormatDialog(true)}
+      />
+      
       <div className="container max-w-6xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2" data-testid="text-page-title">
-            Exam Practice Portal
-          </h1>
-          <p className="text-muted-foreground">
-            Master your certification exams with practice tests and instant feedback
-          </p>
-        </div>
 
         <div className="grid gap-6 md:grid-cols-4 mb-8">
           <Card>

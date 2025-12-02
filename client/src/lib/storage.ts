@@ -211,15 +211,40 @@ export const storageService = {
     Object.values(STORAGE_KEYS).forEach(key => localStorage.removeItem(key));
   },
 
-  parseCorrectAnswers(correctAnswer: string | string[]): string[] {
+  parseCorrectAnswers(correctAnswer: string | string[], options?: string[]): string[] {
+    let answers: string[];
+    
     if (Array.isArray(correctAnswer)) {
-      return correctAnswer.map(a => a.trim().toLowerCase());
+      answers = correctAnswer;
+    } else {
+      answers = correctAnswer.split(',').map(a => a.trim());
     }
-    return correctAnswer.split(',').map(a => a.trim().toLowerCase());
+    
+    // Convert letter indices (A, B, C) to actual option text if options provided
+    if (options) {
+      answers = answers.map(ans => {
+        const trimmed = ans.trim();
+        // Check if it's a single letter (A-Z)
+        if (/^[A-Z]$/i.test(trimmed)) {
+          const index = trimmed.toUpperCase().charCodeAt(0) - 65; // A=0, B=1, etc.
+          if (index >= 0 && index < options.length) {
+            return options[index];
+          }
+        }
+        return ans;
+      });
+    }
+    
+    return answers.map(a => a.trim().toLowerCase());
   },
 
   checkAnswer(question: Question, selectedAnswers: string[]): boolean {
-    const correctAnswers = this.parseCorrectAnswers(question.correct_answer);
+    // Get options array (handle both array and object format)
+    const options = Array.isArray(question.options) 
+      ? question.options 
+      : Object.values(question.options);
+    
+    const correctAnswers = this.parseCorrectAnswers(question.correct_answer, options);
     const normalizedSelected = selectedAnswers.map(a => a.trim().toLowerCase());
     
     // Must have same number of answers
@@ -241,10 +266,30 @@ export const storageService = {
   },
 
   getCorrectAnswersDisplay(question: Question): string[] {
+    // Get options array (handle both array and object format)
+    const options = Array.isArray(question.options) 
+      ? question.options 
+      : Object.values(question.options);
+    
+    let answers: string[];
     if (Array.isArray(question.correct_answer)) {
-      return question.correct_answer;
+      answers = question.correct_answer;
+    } else {
+      answers = question.correct_answer.split(',').map(a => a.trim());
     }
-    return question.correct_answer.split(',').map(a => a.trim());
+    
+    // Convert letter indices to actual text
+    return answers.map(ans => {
+      const trimmed = ans.trim();
+      // Check if it's a single letter (A-Z)
+      if (/^[A-Z]$/i.test(trimmed)) {
+        const index = trimmed.toUpperCase().charCodeAt(0) - 65;
+        if (index >= 0 && index < options.length) {
+          return options[index];
+        }
+      }
+      return ans;
+    });
   },
 
   // Shuffle array using Fisher-Yates algorithm

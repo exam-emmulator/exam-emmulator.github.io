@@ -1,7 +1,7 @@
 export interface Question {
   question: string;
-  options: string[];
-  correct_answer: string | string[];
+  options: string[] | Record<string, string>; // Array or object with A, B, C, D keys
+  correct_answer: string | string[]; // Can be "A", "A, B", or full text
   explanation?: string;
   references?: string[];
   hint?: string;
