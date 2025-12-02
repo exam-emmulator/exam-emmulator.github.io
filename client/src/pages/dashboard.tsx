@@ -270,53 +270,7 @@ export default function Dashboard() {
               </Card>
             )}
 
-            {/* Upload Section - Collapsible */}
-            <Card>
-              <CardHeader className="cursor-pointer" onClick={() => setShowUpload(!showUpload)}>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Upload className="h-5 w-5" />
-                    <CardTitle className="text-base">Upload Question Bank</CardTitle>
-                  </div>
-                  {showUpload ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-                </div>
-              </CardHeader>
-              {showUpload && (
-                <CardContent>
-                  <div 
-                    className="border-2 border-dashed rounded-lg p-8 hover:border-primary/50 transition-colors cursor-pointer"
-                    onClick={() => fileInputRef.current?.click()}
-                  >
-                    <div className="flex flex-col items-center justify-center text-center gap-3">
-                      <div className="p-4 bg-muted rounded-full">
-                        <Upload className="h-8 w-8 text-muted-foreground" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-foreground">Click to upload or drag and drop</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          JSON files only
-                        </p>
-                      </div>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        accept=".json"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        data-testid="input-file-upload"
-                      />
-                    </div>
-                  </div>
-                  {uploadError && (
-                    <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg flex items-start gap-2">
-                      <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
-                      <p className="text-sm text-destructive" data-testid="text-upload-error">{uploadError}</p>
-                    </div>
-                  )}
-                </CardContent>
-              )}
-            </Card>
-
+            {/* Question Banks Section */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Question Banks</h2>
               {questionBanks.length === 0 ? (
@@ -416,18 +370,11 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-6">
-            {/* Recent Attempts - Collapsible */}
+            {/* Recent Attempts */}
             <Card>
-              <CardHeader className="cursor-pointer pb-3" onClick={() => setShowHistory(!showHistory)}>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <History className="h-5 w-5" />
-                    <CardTitle className="text-base">Recent Attempts</CardTitle>
-                  </div>
-                  {showHistory ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-                </div>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base">Recent Attempts</CardTitle>
               </CardHeader>
-              {showHistory && (
                 <CardContent>
                   {recentAttempts.length === 0 ? (
                     <div className="py-8 text-center">
@@ -480,53 +427,88 @@ export default function Dashboard() {
                     </div>
                   )}
                 </CardContent>
-              )}
-            </Card>
-
-            {/* JSON Format Guide - Collapsible */}
-            <Card>
-              <CardHeader className="cursor-pointer pb-3" onClick={() => setShowFormatGuide(!showFormatGuide)}>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Code className="h-5 w-5" />
-                    <CardTitle className="text-base">JSON Format Guide</CardTitle>
-                  </div>
-                  {showFormatGuide ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-                </div>
-              </CardHeader>
-              {showFormatGuide && (
-                <CardContent className="text-sm text-muted-foreground space-y-3">
-                  <p>Upload a JSON file with this structure:</p>
-                  <pre className="bg-background p-3 rounded-lg text-xs overflow-x-auto">
-{`[
-  {
-    "question": "Your question?",
-    "options": ["A", "B", "C", "D"],
-    "correct_answer": "A",
-    "explanation": "Optional"
-  }
-]`}
-                </pre>
-                  <p className="text-xs">
-                    For multi-select, include multiple answers separated by commas in correct_answer.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full mt-2"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open('/bank/README.md', '_blank');
-                    }}
-                  >
-                    View Full Documentation
-                  </Button>
-                </CardContent>
-              )}
             </Card>
           </div>
         </div>
-      </div>
+
+        {/* Upload Dialog */}
+        <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Upload Question Bank</DialogTitle>
+              <DialogDescription>
+                Upload a JSON file containing your questions
+              </DialogDescription>
+            </DialogHeader>
+            <div 
+              className="border-2 border-dashed rounded-lg p-8 hover:border-primary/50 transition-colors cursor-pointer"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <div className="flex flex-col items-center justify-center text-center gap-3">
+                <div className="p-4 bg-muted rounded-full">
+                  <Upload className="h-8 w-8 text-muted-foreground" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Click to upload</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    JSON files only
+                  </p>
+                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".json"
+                  className="hidden"
+                  onChange={handleFileUpload}
+                  data-testid="input-file-upload"
+                />
+              </div>
+            </div>
+            {uploadError && (
+              <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg flex items-start gap-2">
+                <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+                <p className="text-sm text-destructive" data-testid="text-upload-error">{uploadError}</p>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+
+        {/* Format Guide Dialog */}
+        <Dialog open={showFormatDialog} onOpenChange={setShowFormatDialog}>
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <DialogTitle>JSON Format Guide</DialogTitle>
+              <DialogDescription>
+                How to structure your question bank files
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-3">
+              <p className="text-sm">Upload a JSON file with this structure:</p>
+              <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto">
+{`{
+  "id": "unique-id",
+  "name": "Question Bank Name",
+  "questions": [
+    {
+      "question": "Your question?",
+      "options": {
+        "A": "Option A",
+        "B": "Option B",
+        "C": "Option C",
+        "D": "Option D"
+      },
+      "correct_answer": "A",
+      "explanation": "Optional"
+    }
+  ]
+}`}
+              </pre>
+              <p className="text-xs text-muted-foreground">
+                For multi-select questions, use "A, B" format for correct_answer.
+              </p>
+            </div>
+          </DialogContent>
+        </Dialog>
 
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <AlertDialogContent>

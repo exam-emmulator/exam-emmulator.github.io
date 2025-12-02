@@ -172,29 +172,46 @@ Or with comma-separated string:
 3. The file will be automatically loaded when the server starts
 4. If your file uses object-style options (A, B, C, D), run `npm run normalize-banks` to convert it
 
-## Normalizing Question Banks
+## Optimization Scripts
 
-If you have a question bank with options in object format:
-
-```json
-{
-  "options": {
-    "A": "Option A text",
-    "B": "Option B text",
-    "C": "Option C text",
-    "D": "Option D text"
-  },
-  "correct_answer": "A"
-}
+### Clean JSON Files
+Remove newlines and extra whitespace:
+```bash
+npm run clean-banks
 ```
 
-Run the normalization script:
+This removes:
+- Newline characters in text
+- Multiple consecutive spaces
+- Leading/trailing whitespace
 
+### Optimize for Size
+Convert to space-efficient format:
+```bash
+npm run optimize-banks
+```
+
+This converts:
+- Array options → Object options (A, B, C, D)
+- Full text answers → Letter references
+- Reduces file size by ~4-5%
+
+### Normalize Format
+Convert object format back to array format:
 ```bash
 npm run normalize-banks
 ```
 
-This will convert all question banks to the standard array format.
+This converts:
+- Object options → Array options
+- Letter references → Full text answers
+- Useful for compatibility with other tools
+
+**Recommended workflow:**
+1. Create questions in any format
+2. Run `npm run clean-banks` to remove formatting issues
+3. Run `npm run optimize-banks` to reduce file size
+4. Commit and deploy
 
 ## File Naming
 
